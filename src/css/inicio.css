@@ -19,6 +19,8 @@
 
 #inicio{
     text-align: center;
+    display: block;
+    box-shadow: none;
 }
 
 .slogan{
