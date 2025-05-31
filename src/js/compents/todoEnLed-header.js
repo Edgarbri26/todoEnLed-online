@@ -11,8 +11,8 @@ class todoEnLedHeader extends HTMLElement{
         <header>
             <div class="container-header">
                     <div class="logo">
-                    <a href="../../h.html" >
-                    <img src="/assets/logo.png" alt="Logo TodoEnLed">
+                    <a href="../../index.php" >
+                    <img src="assets/logo.png" alt="Logo TodoEnLed">
                     </a>
                 </div>
 
@@ -40,7 +40,6 @@ class todoEnLedHeader extends HTMLElement{
                     <h3 id="counter-product">0</h3>
                 </a>
             </div>
-
         </header>
         `
     }
