@@ -60,9 +60,6 @@
                         </g>
                     </svg>
                     <h3 id="counter-product">
-                      <?php 
-                        echo  $_SESSION['numProducts'];
-                      ?>
                     </h3>
                 </a>
             </div>
@@ -75,7 +72,7 @@
             <h1 class="slogan">Tu camino, <br>tu estilo, <span>Todo en LED.</span></h1>
             <p>todo en acesorios para carros</p>
     </section>
-
+<a href=""></a>
     <section id="new" class="new">
             <h2 class="name-section">Nuevo</h2>
             <article id="products-new" class="products-container">
@@ -83,22 +80,25 @@
                   $sql = "SELECT * FROM products";
                   $result = $conn->query($sql);
                   while($row = $result->fetch_assoc()) {
-                    echo "<div class='product-container'>
-                                <img class='img-product' src='{$row['img']}' alt='{$row['nombre']}'>
-                                <h3 class='product-name'>{$row['nombre']}</h3>
-                                <p>Disponible: {$row['stock']}</p>
-                                <span class='cost'>$ {$row['precio']}</span>
-                                <button type='button' class='btn' onclick='agregarAlCarrito({$row['id']})' >
-                                    <span class='icon'>
-                                        <svg viewBox='0 0 175 80' width='40' height='40'>
-                                            <rect width='80' height='15' fill='#f0f0f0' rx='10'></rect>
-                                            <rect y='30' width='80' height='15' fill='#f0f0f0' rx='10'></rect>
-                                            <rect y='60' width='80' height='15' fill='#f0f0f0' rx='10'></rect>
-                                        </svg>
-                                    </span>
-                                    <span class='text'>Add</span>
-                                </button>
-                          </div>";
+                    echo 
+                      "<div class='product-container'>
+                        <a id={$row['id']} href='src/php/product.php'>
+                          <img class='img-product' src='{$row['img']}' alt='{$row['nombre']}'>
+                        </a>
+                        <h3 class='product-name'>{$row['nombre']}</h3>
+                        <p>Disponible: {$row['stock']}</p>
+                        <span class='cost'>$ {$row['precio']}</span>
+                        <button type='button' class='btn' onclick='agregarAlCarrito({$row['id']})' >
+                              <span class='icon'>
+                                  <svg viewBox='0 0 175 80' width='40' height='40'>
+                                      <rect width='80' height='15' fill='#f0f0f0' rx='10'></rect>
+                                      <rect y='30' width='80' height='15' fill='#f0f0f0' rx='10'></rect>
+                                      <rect y='60' width='80' height='15' fill='#f0f0f0' rx='10'></rect>
+                                  </svg>
+                              </span>
+                              <span class='text'>Add</span>
+                        </button>
+                      </div>";
                   }
                 ?>
             </article>
@@ -112,15 +112,5 @@
   
   <script src="src/js/compents/todoEnLed-header.js"></script>
   <script src="src/js/script.js"></script>
-  
-
 </body>
 </html>
-
-
-
-
-<!--form method="post">
-    <input type="text" name="producto" placeholder="Nombre del producto">
-    <button type="submit">Agregar al carrito</button>
-</!--form-->

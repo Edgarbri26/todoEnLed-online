@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/css/global.css">
-    <link rel="stylesheet" href="/src/css/product.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/product.css">
     <title>Document</title>
 </head>
 <body>
     <todoenled-header></todoenled-header>
 
     <section>
-        <img class="img-product" src="/assets/productos/2-luces.jpg" alt="luz">
+        <img class="img-product" src="../../assets/productos/2-luces.jpg" alt="luz">
         <div class="info-product">
             <h2>nombre</h2>
             <span>precio</span>
@@ -30,6 +30,6 @@
         </div>
     </section>
 
-    <script src="/src/js/compents/todoEnLed-header.js"></script>
+    <script src="../js/compents/todoEnLed-header.js"></script>
 </body>
 </html>

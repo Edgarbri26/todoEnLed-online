@@ -9,5 +9,5 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-echo "<script>alert('¡Hola, Edgar! Esto es un alert desde PHP');</script>";
+//echo "<script>alert('¡Hola, Edgar! Esto es un alert desde PHP');</script>";
 ?>
