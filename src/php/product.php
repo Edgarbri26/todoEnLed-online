@@ -16,7 +16,7 @@
             <h2>nombre</h2>
             <span>precio</span>
             <input min="1" max="" type="number" value="1">
-            <button type="button" class="btn">
+            <button type="button" class="btn" onclick="agregarAlCarrito(2)">
                         <span class="icon">
                             <svg viewBox="0 0 175 80" width="40" height="40">
                                 <rect width="80" height="15" fill="#f0f0f0" rx="10"></rect>
@@ -31,5 +31,7 @@
     </section>
 
     <script src="../js/compents/todoEnLed-header.js"></script>
+    <script src="../js/script.js"></script>
+    
 </body>
 </html>
