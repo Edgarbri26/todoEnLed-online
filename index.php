@@ -2,6 +2,7 @@
 <?php include 'src/php/db.php'; ?>
 <?php
   session_start();
+  //$_SESSION['rol'] = 0;
   $_SESSION['rol'] = 2;
   //esto por ahora funciona con js
   // Inicializa el carrito si no existe
@@ -56,7 +57,7 @@
           <li><a href="">Compras</a></li>
         </ul>
       </!--nav-->
-      <button id="btn-login">login</button>
+      <a href="login.php" id="btn-login">login</a>
 
 <?php
   if($_SESSION['rol'] != 3 ){
