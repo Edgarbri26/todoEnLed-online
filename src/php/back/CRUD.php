@@ -1,17 +1,25 @@
 <?php
-include "../db.php";
+include '../db.php';
+
 $apiKey = "e730751c6fa1c9108be628b4a5928040";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $nombre = $_POST['nombre'];
-    $descripcion = $_POST['descripcion'];
-    $precio = $_POST['precio'];
-    
-    // se convierte la imagen primero antes de enviarla
+    $nombre = $_POST['nombre'] ?? '';
+    $descripcion = $_POST['descripcion'] ?? '';
+    $precio = $_POST['precio'] ?? '';
+    $stock = $_POST['stock'] ?? 0;
+
+    if (!isset($_FILES['imagen']) || $_FILES['imagen']['error'] !== 0) {
+        die("Error: No se pudo cargar la imagen.");
+    }
+
     $imagenTemp = $_FILES['imagen']['tmp_name'];
+    if (!file_exists($imagenTemp)) {
+        die("Error: El archivo temporal no existe.");
+    }
+
     $imagenData = base64_encode(file_get_contents($imagenTemp));
 
-    // esto la sube a imgbb(donde tenemos las imagenes)
     $response = file_get_contents("https://api.imgbb.com/1/upload?key=$apiKey", false, stream_context_create([
         'http' => [
             'method'  => 'POST',
@@ -24,13 +32,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $imagenURL = $data['data']['url'] ?? '';
 
     if ($imagenURL) {
-        //si cargo la imagen  guarda en la base de datos
-        $stmt = $conn->prepare("INSERT INTO productos (nombre, descripcion, precio, imagen_url) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssds", $nombre, $descripcion, $precio, $imagenURL);
+        $stmt = $conn->prepare("INSERT INTO products (nombre, descripcion, precio, img, stock, id_categoria) VALUES (?, ?, ?, ?, ?, 1)");
+        $stmt->bind_param("ssisi", $nombre, $descripcion, $precio, $imagenURL, $stock);
         $stmt->execute();
-        echo "Producto creado correctamente. <a href='index.php'>Volver</a>";
+        echo "<script>alert('Producto agregado exitosamente');</script>";
     } else {
-        echo "Error al subir la imagen.";
+        echo "Error al subir la imagen. Respuesta: " . $response;
     }
+    
 }
+
+
 ?>
+
