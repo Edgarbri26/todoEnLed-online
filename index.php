@@ -2,7 +2,7 @@
 <?php include 'src/php/db.php'; ?>
 <?php
   session_start();
-  $_SESSION['rol'] = 3;
+  $_SESSION['rol'] = 2;
   //esto por ahora funciona con js
   // Inicializa el carrito si no existe
 
@@ -43,10 +43,12 @@
       </div>
 
       <div class="container-search">
-        <input type="search" placeholder="Buscar..." name="text" class="search-input">
-        <button type="button" class="search-button">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
+        <form action="src/php/search.php" method="post" >
+          <input type="search" placeholder="Buscar..." name="text" class="search-input">
+          <button type="submit" class="search-button" name="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          </form>
       </div>
       <!--nav class="nav-bar">
         <ul>
