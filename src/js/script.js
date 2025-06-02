@@ -2,6 +2,7 @@ let carrito = [];
 let numProducts = 0;
 
 cargarCarrito();
+localStorage.clear();
 
 function agregarAlCarrito(idProducto) {
   const counterProduct = document.getElementById("counter-product");
@@ -9,6 +10,7 @@ function agregarAlCarrito(idProducto) {
   console.log(carrito);
   numProducts++;
   counterProduct.textContent = numProducts;
+  alert("PRoducto agregado con exito")
   guardarCarrito();
 }
 
