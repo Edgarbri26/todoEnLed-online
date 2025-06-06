@@ -89,7 +89,7 @@
             echo "<h1 class='slogan'>Vista <br> ".$user.", <span>Todo en LED.</span></h1>
             <p>todo en acesorios para carros</p>
             
-            <button class='btn' type='button'> Gestion de productos</button>
+            <a href='src/php/vistas/gestionarProducto.php' class='btn' > Gestion de productos</a>
             <button class='btn' type='button'> solicitudes de compra</button>"
             ;
         }

@@ -36,6 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt->bind_param("ssisi", $nombre, $descripcion, $precio, $imagenURL, $stock);
         $stmt->execute();
         echo "<script>alert('Producto agregado exitosamente');</script>";
+         header(header: 'location:../vistas/gestionarProducto.php');
+         //header("location:index.php");
     } else {
         echo "Error al subir la imagen. Respuesta: " . $response;
     }
