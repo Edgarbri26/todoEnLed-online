@@ -1,0 +1,21 @@
+section{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.img-product {
+    height: auto;
+    width: 100%;
+}
+
+.info-product{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.btn{
+    width: 100%;
+
+}
