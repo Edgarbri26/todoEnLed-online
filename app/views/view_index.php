@@ -28,7 +28,7 @@
           <h3 class="product-name"><?php echo $row['nombre']; ?></h3>
           <p>Disponible: <?php echo $row['stock']; ?></p>
           <span class="cost">$ <?php echo $row['precio']; ?></span>
-          <form method="post" style="display:inline;">
+          <form method="post" style="display:inline;" action="../Controllers/controller_cart.php">
             <input type="hidden" name="producto" value="<?php echo $row['id']; ?>">
             <button type="submit" class="btn">
               <span class="icon">
