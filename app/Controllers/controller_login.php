@@ -10,7 +10,7 @@ if (isset($_POST['button'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    if ($login->authenticate($username, $password)) {
+    if ($login->authenticate($username, $password)) {;
         header("Location: ../Controllers/controller_index.php");
         exit();
     } else {

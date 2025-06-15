@@ -17,6 +17,7 @@
   "homepage": "https://github.com/Edgarbri26/todoEnLed-online#readme",
   "description": "",
   "dependencies": {
+    "@midudev/tailwind-animations": "^0.2.0",
     "@tailwindcss/cli": "^4.1.10",
     "tailwindcss": "^4.1.10"
   }
