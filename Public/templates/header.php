@@ -23,7 +23,6 @@
       </button>
     </div>
 
-    <!-- Logo and tagline -->
     <div class="flex flex-col items-center">
       <a href="/todoEnLed-online/app/Controllers/controller_index.php">
       <!--span class="text-xs text-center text-white">TodoEnLed | Tu camino, Tu estilo</!--span-->
@@ -31,13 +30,13 @@
       </a>
     </div>
 
-    <!-- Right section -->
+
     <div class="flex items-center justify-end space-x-4">
-      <button type="button" class="text-gray-700 hover:text-black">
+      <a href="../Controllers/controller_login.php" class="text-gray-700 hover:text-black">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A7 7 0 0112 15a7 7 0 016.879 2.804M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
-      </button>
+      </a>
       <div class="relative">
         <a href="/todoEnLed-online/app/views/view_cart.php" class="text-gray-700 hover:text-black">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -49,7 +48,7 @@
     </div>
   </div>
 
-  <!-- Navigation -->
+  <!-- npavigation -->
   <nav class="">
     <div class="max-w-screen-xl mx-auto px-4 py-2 flex justify-center space-x-6 text-lg font-semibold text-white gap-2.5">
       <a href="#" class="hover:text-verde-principal">New</a>

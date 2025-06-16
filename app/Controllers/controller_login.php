@@ -23,4 +23,4 @@ if (isset($_POST['button'])) {
 
 
 
-require_once __DIR__ . '/../views/view_login.php';
+require_once __DIR__ . '/../views/LoginVistaPrueva.php';
