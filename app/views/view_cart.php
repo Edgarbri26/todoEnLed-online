@@ -138,4 +138,4 @@
 
 </body>
 
-    <!--?php require '../../Public/templates/footer.php'; ?-->
+<?php require '../../Public/templates/footer.php'; ?>
