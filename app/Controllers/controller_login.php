@@ -10,7 +10,7 @@ if (isset($_POST['button'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    if ($login->authenticate($username, $password)) {
+    if ($login->authenticate($username, $password)) {;
         header("Location: ../Controllers/controller_index.php");
         exit();
     } else {
@@ -23,4 +23,6 @@ if (isset($_POST['button'])) {
 
 
 
-require_once __DIR__ . '/../views/view_login.php';
+require_once __DIR__ . '/../views/cliente/LoginVistaPrueva.php';
+//require_once __DIR__ . '/../views/LoginVistaPrueva.php';
+?>

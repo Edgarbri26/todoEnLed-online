@@ -8,8 +8,8 @@ class todoEnLedHeader extends HTMLElement{
     render(){
         this.innerHTML = /*HTML*/
         `
-        <header>
-            <div class="container-header">
+        <header class="flex justify-center">
+            <div class="">
                     <div class="logo">
                     <a href="../../index.php" >
                     <img src="../../assets/logo.png" alt="Logo TodoEnLed">

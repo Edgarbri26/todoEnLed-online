@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@plugin "@midudev/tailwind-animations";
+
+@theme{
+    --color-verde-principal: #8DC63F;
+    --color-azul-principal: #2445DA;
+    --color-azul-suave: #AFCBFF;
+    --color-verde-menta: #D4F1BE;
+}
+
+/*asi se crea una clase para ponerle los mismos estilos a una clase*/
+.container-header {
+    @apply max-w-screen-xl mx-auto px-4 py-6 grid grid-cols-3 items-center;
+    grid-template-areas: 
+        "logo search container-cart"
+        "nav-bar nav-bar nav-bar";
+}
+
+.main-container{
+    @apply max-w-screen-xl mx-auto p-6 min-h-screen;
+}

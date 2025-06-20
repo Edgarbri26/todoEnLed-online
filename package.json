@@ -1,0 +1,24 @@
+{
+  "name": "todoenled-online",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "pnpx  @tailwindcss/cli -i ./input.css -o ./assets/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Edgarbri26/todoEnLed-online.git"
+  },
+  "author": "Edgar Briceño, Jesus Ramos, Jose Fernandez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Edgarbri26/todoEnLed-online/issues"
+  },
+  "homepage": "https://github.com/Edgarbri26/todoEnLed-online#readme",
+  "description": "",
+  "dependencies": {
+    "@midudev/tailwind-animations": "^0.2.0",
+    "@tailwindcss/cli": "^4.1.10",
+    "tailwindcss": "^4.1.10"
+  }
+}

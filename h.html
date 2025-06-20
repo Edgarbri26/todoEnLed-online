@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" >
-    <link rel="stylesheet" href="src/css/global.css">
-    <link rel="stylesheet" href="src/css/inicio.css">
+    <link rel="stylesheet" href="/assets/output.css">
     <link rel="icon" href="/assets/logo.ico">
     <title>TodoEnLed</title>
 
@@ -13,19 +12,19 @@
 
 
 </head>
+
 <body>
     <todoenled-header></todoenled-header>
 
-    <main>
-        <section id="inicio">
-            <h1 class="slogan">Tu camino, <br>tu estilo, <span>Todo en LED.</span></h1>
+    <main class="bg-amber-200  text-gray-800 " > ">
+        <section class="bg-amber-400" id="inicio">
+            <h1 class=" animate-slide-up-fade text-8xl text-blue-400">Tu camino, <br>tu estilo, <span>Todo en LED.</span></h1>
             <p>Todo que buscas para tu vehiculo</p>
-            
         </section>
-<button class='btn' type="button">
-Gestion de productos
-</button>
-<input type="number">
+        <button type="button">
+            Gestion de productos
+        </button>
+        <input class="m-4 rounded-b-sm bg-verde-principal" type="number">
         <section id="new" class="new">
             <h2 class="name-section">Nuevo</h2>
             <article id="products-new" class="products-container">
@@ -51,7 +50,7 @@ Gestion de productos
 
         </section>
 
-        <section id="luces" >
+        <section id="luces">
             <h2 class="name-section">Luces</h2>
             <a href="">ver mas</a>
         </section>
@@ -64,4 +63,5 @@ Gestion de productos
 
     <script src="/src/js/compents/todoEnLed-header.js"></script>
 </body>
+
 </html>

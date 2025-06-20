@@ -29,3 +29,4 @@ function cargarCarrito() {
     document.getElementById("counter-product").textContent = numProducts;
   }
 }
+
