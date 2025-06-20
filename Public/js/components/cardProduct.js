@@ -44,7 +44,7 @@ class cardProduct extends HTMLElement{
         }*/
         this.innerHTML = /*HTML*/
         `
-        <article class="bg-white shadow rounded-lg overflow-hidden ">
+        <article class="bg-white shadow rounded-lg overflow-hidden p-2.5 w-full hover:scale-105 transition-all duration-300">
             <a href="">
                 <img src=${this.img} alt="${this.name}" class="w-full h-48 object-cover">
             </a>

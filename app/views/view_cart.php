@@ -1,5 +1,5 @@
-<?php require '../../Public/templates/header.php'; 
-?>
+<?php require '../../Public/templates/head.php'; ?>
+<?php require '../../Public/templates/header.php'; ?>
 
 
 <body class="bg-gray-50 font-sans">

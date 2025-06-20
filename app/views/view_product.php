@@ -1,3 +1,4 @@
+<?php require '../../Public/templates/head.php'; ?>
 <?php require '../../Public/templates/header.php'; ?>
 
 <main class="max-w-7xl mx-auto p-6">

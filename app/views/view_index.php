@@ -1,3 +1,4 @@
+<?php require '../../Public/templates/head.php'; ?>
 <?php require '../../Public/templates/header.php'; ?>
 
 
@@ -15,7 +16,7 @@
             <a href='src/php/vistas/gestionarProducto.php' class='btn'>Gestion de productos</a>
             <button class='btn' type='button'>solicitudes de compra</button>";
     } else {
-      echo "<h1 class=' font-bold text-6xl '>Tu camino, <br>tu estilo,  <span class=' text-verde-principal'>Todo en LED.</span></h1>
+      echo "<h1 class=' font-bold text-6xl '>Tu camino, <br>Tu estilo,  <span class=' text-verde-principal'>Todo en LED.</span></h1>
             <p class=' text-2xl text-gray-600 font-medium'>todo en accesorios para carros</p>";
     }
     ?>
@@ -23,12 +24,12 @@
 
 
 
-  <h2 class=" text-4xl text-verde-principal my-5">Nuevo</h2>
-
+  
   <?php if($rol != 3): ?>
-    <section class=" grid grid-cols-1 my-2.5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <h2 class=" text-4xl text-verde-principal my-5 text-center font-bold">Ultimo agregado</h2>
+    <section class=" grid grid-cols-1 my-2.5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-2.5">
       <?php foreach($products as $row): ?>
-        <card-product name="<?php echo $row['nombre']; ?>" price="<?php echo $row['precio']; ?>" desc="<?php echo $row['descripcion']; ?>" img="<?php echo $row['img']; ?>"></card-product>
+        <card-product class="hover:scale-105 transition-all duration-300" name="<?php echo $row['nombre']; ?>" price="<?php echo $row['precio']; ?>" desc="<?php echo $row['descripcion']; ?>" img="<?php echo $row['img']; ?>"></card-product>
       <?php endforeach; ?>
     </section>
   <?php endif; ?>
