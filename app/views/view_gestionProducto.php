@@ -1,7 +1,7 @@
 <?php require '../../Public/templates/head.php'; ?>
-<?php require '../../Public/templates/header.php'; ?>
+<?php require '../../Public/templates/headerEmpleado.php'; ?>
 
-    <main class="max-w-7xl mx-auto p-6">
+    <main class="main-container">
         <div class="max-w-7xl mx-auto p-6">
     <h1 class="text-3xl font-bold mb-6">Gestión de Productos</h1>
 

@@ -2,7 +2,7 @@
 <?php require '../../Public/templates/header.php'; ?>
 
 <body class="bg-gray-100">
-    <main class="max-w-7xl mx-auto p-6 ">
+    <main class="main-container">
         <section class=" mt-5 flex justify-center items-center">
             <article class=" mt-5 bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
                 <h2 class="text-2xl font-bold mb-6 text-center">Agregar Nuevo Producto</h2>

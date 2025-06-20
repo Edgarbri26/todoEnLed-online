@@ -3,7 +3,7 @@
 
 
 <body class="bg-gray-50 font-sans">
-  <main class="max-w-7xl mx-auto p-6">
+  <main class="main-container">
     <h1 class="text-3xl font-bold mb-6">Carrito de compra</h1>
 
     <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">

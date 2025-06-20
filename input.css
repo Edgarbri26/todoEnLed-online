@@ -15,3 +15,7 @@
         "logo search container-cart"
         "nav-bar nav-bar nav-bar";
 }
+
+.main-container{
+    @apply max-w-screen-xl mx-auto p-6 min-h-screen;
+}

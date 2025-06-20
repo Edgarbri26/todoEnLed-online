@@ -3,10 +3,13 @@
 
 
 <?php
-  $rol = 2;
+  $rol = 1;
+  if($rol == 1){
+    header('Location: /todoEnLed-online/app/views/view_homeEmpleado.php');
+  }
 ?>
 
-<main class="max-w-screen-xl mx-auto px-4 py-8">
+<main class="main-container">
   <section class=" mx-2.5 text-center max-w-screen-xl mx-au" id="inicio">
     <?php
     if($rol == 3 || $rol == 1){

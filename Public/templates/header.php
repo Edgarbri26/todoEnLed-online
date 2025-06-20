@@ -1,50 +1,45 @@
-<header class=" bg-azul-principal shadow sticky top-0 z-50 px-24 text-center">
-  <div class="max-w-screen-xl mx-auto px-4 py-4 grid grid-cols-[1fr_auto_1fr] items-center">
-    <!-- Search icon -->
-    <div class="flex items-center space-x-4">
-      <button type="button" class=" text-white hover:text-black">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M12.9 14.32a8 8 0 111.414-1.414l4.387 4.387a1 1 0 01-1.414 1.414l-4.387-4.387zM14 8a6 6 0 11-12 0 6 6 0 0112 0z" clip-rule="evenodd" />
-        </svg>
-      </button>
-    </div>
+<body class="bg-white">
+  <header class=" bg-azul-principal shadow sticky top-0 z-50 px-24 text-center">
+    <div class="max-w-screen-xl mx-auto px-4 py-4 grid grid-cols-[1fr_auto_1fr] items-center">
+      <!-- Search icon -->
+      <div class="flex items-center space-x-4">
+        <button type="button" class=" text-white hover:text-black">
+          <i class="fa-solid fa-magnifying-glass text-2xl hover:text-verde-principal"></i>
+        </button>
+      </div>
 
-    <div class="flex flex-col items-center">
-      <a href="/todoEnLed-online/app/Controllers/controller_index.php">
-      <!--span class="text-xs text-center text-white">TodoEnLed | Tu camino, Tu estilo</!--span-->
-        <img src="/todoEnLed-online/Public/img/logo.png" alt="Logo" class="h-10 mt-1" >
-      </a>
-    </div>
-
-
-    <div class="flex items-center justify-end space-x-4">
-      <a href="../Controllers/controller_login.php" class="text-gray-700 hover:text-black">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A7 7 0 0112 15a7 7 0 016.879 2.804M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      </a>
-      <div class="relative">
-        <a href="/todoEnLed-online/app/views/view_cart.php" class="text-gray-700 hover:text-black">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.293 2.293a1 1 0 00-.207.707V17h16m-7 0a2 2 0 100 4 2 2 0 000-4zm-6 0a2 2 0 100 4 2 2 0 000-4z" />
-          </svg>
+      <div class="flex flex-col items-center">
+        <a href="/todoEnLed-online/app/Controllers/controller_index.php">
+        <!--span class="text-xs text-center text-white">TodoEnLed | Tu camino, Tu estilo</!--span-->
+          <img src="/todoEnLed-online/Public/img/logo.png" alt="Logo" class="h-10 mt-1" >
         </a>
-        <span class="absolute -top-1 -right-1 bg-orange-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+      </div>
+
+
+      <div class="flex items-center justify-end space-x-4 h-full">
+        <a href="../Controllers/controller_login.php">
+          <i class="fa-solid fa-user text-white text-2xl hover:text-verde-principal"></i>
+        </a>
+        <div class="relative">
+          <a href="/todoEnLed-online/app/views/view_cart.php" class="text-gray-700 hover:text-black">
+            <i class="fa-solid fa-cart-shopping text-white text-2xl hover:text-verde-principal "></i>
+          </a>
+          <span class=" absolute -top-3 -right-2 bg-verde-principal text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- npavigation -->
-  <nav class="">
-    <div class="max-w-screen-xl mx-auto px-4 py-2 flex justify-center space-x-6 text-lg font-semibold text-white gap-2.5">
-      <a href="#" class="hover:text-verde-principal">New</a>
-      <a href="#" class="hover:text-verde-principal">Luces</a>
-      <a href="#" class="hover:text-verde-principal">Cornetas</a>
-      <a href="#" class="hover:text-verde-principal">Seguiridad</a>
-      <a href="#" class="hover:text-verde-principal">oferta</a>
-      <a href="#" class="hover:text-verde-principal">faros</a>
-      <a href="#" class="hover:text-verde-principal">filtros</a>
-      <a href="#" class="hover:text-verde-principal">Leds</a>
-    </div>
-  </nav>
-</header>
+    <!-- npavigation -->
+    <nav class="">
+      <div class="max-w-screen-xl mx-auto px-4 py-2 flex justify-center space-x-6 text-lg font-semibold text-white gap-2.5">
+        <a href="#" class="hover:text-verde-principal">New</a>
+        <a href="#" class="hover:text-verde-principal">Luces</a>
+        <a href="#" class="hover:text-verde-principal">Cornetas</a>
+        <a href="#" class="hover:text-verde-principal">Seguiridad</a>
+        <a href="#" class="hover:text-verde-principal">oferta</a>
+        <a href="#" class="hover:text-verde-principal">faros</a>
+        <a href="#" class="hover:text-verde-principal">filtros</a>
+        <a href="#" class="hover:text-verde-principal">Leds</a>
+      </div>
+    </nav>
+  </header>

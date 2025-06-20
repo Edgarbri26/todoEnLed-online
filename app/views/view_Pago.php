@@ -1,7 +1,7 @@
 <?php require '../../Public/templates/head.php'; ?>
 <?php require '../../Public/templates/header.php'; ?>
 
-<main class="max-w-6xl mx-auto px-6 py-10">
+<main class="main-container">
     <div class="flex flex-col lg:flex-row gap-6">
       <div class="flex-1 space-y-10">
         <!-- 1. Datos de facturación -->

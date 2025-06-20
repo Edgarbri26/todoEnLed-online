@@ -8,7 +8,7 @@
 </head>
 <body class="bg-white text-gray-800 font-sans">
 
-  <main class="flex items-center justify-center h-lvh bg-gray-100 px-4">
+  <main class=" flex items-center justify-center h-lvh bg-gray-100 px-4">
     <section class="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
       <h2 class="text-2xl font-semibold text-center mb-6 text-gray-800">Iniciar sesión</h2>
       
