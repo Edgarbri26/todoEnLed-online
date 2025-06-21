@@ -1,12 +1,13 @@
-<?php require '../../Public/templates/head.php'; ?>
-<?php require '../../Public/templates/header.php'; ?>
+<?php require __DIR__ . '/../../Public/templates/head.php'; ?>
+
 
 
 <?php
-  $rol = 1;
+  $rol = 2;
   if($rol == 1){
     header('Location: /todoEnLed-online/app/views/view_homeEmpleado.php');
   }
+   require __DIR__ . '/../../Public/templates/header.php';
 ?>
 
 <main class="main-container">

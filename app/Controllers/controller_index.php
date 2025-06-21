@@ -10,5 +10,5 @@ $productModel = new Product();
 $products = $productModel->getAll();
 $rol = $_SESSION['rol'] ?? 0;
 
-require_once '../views/view_index.php';
+require_once __DIR__ . '/../views/view_index.php';
 ?>
