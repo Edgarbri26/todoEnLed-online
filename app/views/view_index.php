@@ -3,9 +3,16 @@
 
 
 <?php
-  $rol = 2;
+  session_start();
+  if(isset($_SESSION['rol'])){
+    $rol = $_SESSION['rol'];
+  }
+  else{
+    $rol = 2;
+  }
   if($rol == 1){
     header('Location: /todoEnLed-online/app/views/view_homeEmpleado.php');
+    exit;
   }
    require __DIR__ . '/../../Public/templates/header.php';
 ?>
@@ -33,7 +40,7 @@
     <h2 class=" text-4xl text-verde-principal my-5 text-center font-bold">Ultimo agregado</h2>
     <section class=" grid grid-cols-1 my-2.5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-2.5">
       <?php foreach($products as $row): ?>
-        <card-product class="hover:scale-105 transition-all duration-300" name="<?php echo $row['nombre']; ?>" price="<?php echo $row['precio']; ?>" desc="<?php echo $row['descripcion']; ?>" img="<?php echo $row['img']; ?>"></card-product>
+        <card-product class="hover:scale-105 transition-all duration-300" id="<?php echo $row['id']; ?>" name="<?php echo $row['nombre']; ?>" price="<?php echo $row['precio']; ?>" desc="<?php echo $row['descripcion']; ?>" img="<?php echo $row['img']; ?>"></card-product>
       <?php endforeach; ?>
     </section>
   <?php endif; ?>
@@ -76,4 +83,4 @@
 <!--script src="src/js/compents/todoEnLed-header.js"></-script-->
 <script src="../../Public/js/components/cardProduct.js"></script>
 
-<?php require '../../Public/templates/footer.php'; ?>
+<?php require __DIR__ . '/../../Public/templates/footer.php'; ?>

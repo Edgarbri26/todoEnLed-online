@@ -10,8 +10,9 @@ if (isset($_POST['button'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    if ($login->authenticate($username, $password)) {;
-        header("Location: ../Controllers/controller_index.php");
+    if ($login->authenticate($username, $password)) {
+        $rol = $_SESSION['rol'];
+        header("Location: ../Controllers/controller_index.php?rol=$rol");
         exit();
     } else {
         echo "Error\n";

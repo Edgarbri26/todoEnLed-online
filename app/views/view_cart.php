@@ -1,6 +1,6 @@
 <?php require '../../Public/templates/head.php'; ?>
 <?php require '../../Public/templates/header.php'; ?>
-
+<?php require_once __DIR__ . '/../../Public/db.php'; ?>
 
 <body class="bg-gray-50 font-sans">
   <main class="main-container">
@@ -20,6 +20,47 @@
               </tr>
             </thead>
             <tbody>
+
+            <?php
+
+    foreach ($carrito as $item) {
+        $productId = $item['id_producto'];
+        $cantidad = $item['cantidad'];
+
+
+        
+            foreach($producto as $row2){ 
+            ?>
+            <tr class="border-t border-t-gray-300 ">
+                <td class="py-4 flex items-center space-x-4">
+                    <img src="<?php echo ($row2['img']); ?>" class="w-16 h-16 object-cover rounded" alt="cornetas">
+                    <div>
+                        <p class="font-semibold"><?php echo ($row2['nombre']); ?></p>
+                        <p class="text-gray-500 text-sm"><?php echo ($row2['descripcion']); ?></p>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div class="inline-flex items-center space-x-1">
+                        <button type="button" class="border border-gray-200 rounded-l-2xl px-2 py-1 h-8 w-8"> - </button>
+                        <span class="px-2"><?php echo ($cantidad); ?></span>
+                        <button type="button" class="border border-gray-200 rounded-r-2xl px-2 py-1 h-8 w-8">+</button>
+                    </div>
+                </td>
+                <td class="">
+                    <button type="button" class="ml-2 text-gray-400 hover:text-red-500">
+                        🗑️
+                    </button>
+                </td>
+                <td class="text-right text-verde-principal font-semibold">
+                    <?php echo ($row2['precio']); ?>
+                </td>
+            </tr>
+            <?php
+            }
+        }
+?>
+
+            
               <tr class="border-t border-t-gray-300 ">
                 <td class="py-4 flex items-center space-x-4">
                   <img src="../../Public/img/productos/corneta.jpg" class="w-16 h-16 object-cover rounded" alt="cornetas">
