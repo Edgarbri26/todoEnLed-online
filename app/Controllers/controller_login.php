@@ -11,8 +11,7 @@ if (isset($_POST['button'])) {
     $password = $_POST['password'];
 
     if ($login->authenticate($username, $password)) {
-        $rol = $_SESSION['rol'];
-        header("Location: ../Controllers/controller_index.php?rol=$rol");
+        header("Location: ../Controllers/controller_index.php");
         exit();
     } else {
         echo "Error\n";
@@ -25,5 +24,4 @@ if (isset($_POST['button'])) {
 
 
 require_once __DIR__ . '/../views/LoginVistaPrueva.php';
-//require_once __DIR__ . '/../views/LoginVistaPrueva.php';
 ?>

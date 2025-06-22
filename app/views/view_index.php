@@ -11,6 +11,9 @@
     $rol = 2;
   }
   if($rol == 1){
+    header('Location: /todoEnLed-online/app/views/view_homeAdmin.php');
+    exit;
+  }else if($rol == 3){
     header('Location: /todoEnLed-online/app/views/view_homeEmpleado.php');
     exit;
   }

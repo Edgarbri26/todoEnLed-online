@@ -33,19 +33,13 @@ private $conn;
                    $_SESSION['rol'] = $row['id_rol'];
                    $_SESSION['username'] = $row['user_name'];
                    return true;
-               } 
-
-               
-            }
-
-            
-            
+               }                
+            }  
         }
         return false;
-
     }
-
 }
+
 
 }
 
