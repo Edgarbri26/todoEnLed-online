@@ -37,7 +37,8 @@ if(isset($_POST['eliminar'])){
 }
 
 if(isset($_POST['eliminarTodo'])){
-    $eliminar_todo = $gestion->EliminarTodo();
+    $id = $_POST['id'];
+    $eliminar_todo = $gestion->EliminarTodo($id);
     header('Location: controller_cart.php');
     var_dump($suma);
 }

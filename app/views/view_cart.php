@@ -74,6 +74,7 @@
             </tbody>
           </table>
           <form action="../Controllers/controller_gestionCart.php" method="post">
+            <input type="hidden" name="id" value="<?php echo ($item['id_user']); ?>">
             <button type="submit" name="eliminarTodo" class="mt-6 flex items-center bg-verde-principal border border-gray-300 px-4 py-2 rounded hover:bg-red-100">
              🗑 Vaciar carrito
            </button>

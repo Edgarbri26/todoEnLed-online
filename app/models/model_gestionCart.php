@@ -47,8 +47,8 @@ class Gestion {
         $result = $this->conn->query($sql);
     }
 
-    public function EliminarTodo() {
-        $sql = "DELETE FROM carrito";
+    public function EliminarTodo($id) {
+        $sql = "DELETE FROM carrito WHERE id_user = $id";
         $result = $this->conn->query($sql);
     }
 
