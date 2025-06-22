@@ -21,7 +21,7 @@
           <i class="fa-solid fa-user text-white text-2xl hover:text-verde-principal"></i>
         </a>
         <div class="relative">
-          <a href="/todoEnLed-online/app/views/view_cart.php" class="text-gray-700 hover:text-black">
+          <a href="/todoEnLed-online/app/Controllers/controller_cart.php" class="text-gray-700 hover:text-black">
             <i class="fa-solid fa-cart-shopping text-white text-2xl hover:text-verde-principal "></i>
           </a>
           <span class=" absolute -top-3 -right-2 bg-verde-principal text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>

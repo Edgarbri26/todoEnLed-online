@@ -26,7 +26,7 @@ class Cart {
     }
 
     public function getCarrito() {
-        $sql = "SELECT * FROM carrito";
+        $sql = "SELECT * FROM carrito JOIN products ON carrito.id_producto = products.id;";
         $result = $this->conn->query($sql);
         $carrito = [];
         while($row = $result->fetch_assoc()) {
