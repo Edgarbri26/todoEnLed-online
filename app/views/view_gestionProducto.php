@@ -35,140 +35,39 @@
             </tr>
         </thead>
         <tbody>
+
+
+        <?php 
+        foreach($prod as $item){
+         ?>
+          
           <tr class="border-t border-t-gray-300 ">
             <td class="py-4 flex items-center space-x-4">
-              <img src="../../Public/img/productos/corneta.jpg" class="w-16 h-16 object-cover rounded" alt="cornetas">
+              <img src="<?php echo ($item['img']); ?>" class="w-16 h-16 object-cover rounded" alt="cornetas">
               <div>
-                <p class="font-semibold">Cornetas</p>
+                <p class="font-semibold"><?php echo ($item['nombre']); ?></p>
                 <!-- la descripcion -->
-                <p class="text-gray-500 text-sm">Dual Track Matte</p>
+                <p class="text-gray-500 text-sm"><?php echo ($item['descripcion']); ?></p>
               </div>
             </td>
             <td class="text-center font-bold">
-              <span class="px-2">1</span>
+              <span class="px-2"><?php echo ($item['stock']); ?></span>
             </td>
             <td class="text-center font-semibold">
               Sonido
             </td>
             <td class="text-center text-verde-principal font-semibold">
-              $59.99
+              <?php echo ($item['precio']); ?>
             </td>
             <td class=" text-right">
               <button class=" bg-verde-principal text-white px-4 py-2 rounded hover:scale-105 transition-all">Edit</button>
             </td>
           </tr>
-           <tr class="border-t border-t-gray-300 ">
-            <td class="py-4 flex items-center space-x-4">
-              <img src="../../Public/img/productos/corneta.jpg" class="w-16 h-16 object-cover rounded" alt="cornetas">
-              <div>
-                <p class="font-semibold">Cornetas</p>
-                <!-- la descripcion -->
-                <p class="text-gray-500 text-sm">Dual Track Matte</p>
-              </div>
-            </td>
-            <td class="text-center font-bold">
-              <span class="px-2">1</span>
-            </td>
-            <td class="text-center font-semibold">
-              Sonido
-            </td>
-            <td class="text-center text-verde-principal font-semibold">
-              $59.99
-            </td>
-            <td class=" text-right">
-              <button class=" bg-verde-principal text-white px-4 py-2 rounded hover:scale-105 transition-all">Edit</button>
-            </td>
-          </tr>
-           <tr class="border-t border-t-gray-300 ">
-            <td class="py-4 flex items-center space-x-4">
-              <img src="../../Public/img/productos/corneta.jpg" class="w-16 h-16 object-cover rounded" alt="cornetas">
-              <div>
-                <p class="font-semibold">Cornetas</p>
-                <!-- la descripcion -->
-                <p class="text-gray-500 text-sm">Dual Track Matte</p>
-              </div>
-            </td>
-            <td class="text-center font-bold">
-              <span class="px-2">1</span>
-            </td>
-            <td class="text-center font-semibold">
-              Sonido
-            </td>
-            <td class="text-center text-verde-principal font-semibold">
-              $59.99
-            </td>
-            <td class=" text-right">
-              <button class=" bg-verde-principal text-white px-4 py-2 rounded hover:scale-105 transition-all">Edit</button>
-            </td>
-          </tr>
-           <tr class="border-t border-t-gray-300 ">
-            <td class="py-4 flex items-center space-x-4">
-              <img src="../../Public/img/productos/corneta.jpg" class="w-16 h-16 object-cover rounded" alt="cornetas">
-              <div>
-                <p class="font-semibold">Cornetas</p>
-                <!-- la descripcion -->
-                <p class="text-gray-500 text-sm">Dual Track Matte</p>
-              </div>
-            </td>
-            <td class="text-center font-bold">
-              <span class="px-2">1</span>
-            </td>
-            <td class="text-center font-semibold">
-              Sonido
-            </td>
-            <td class="text-center text-verde-principal font-semibold">
-              $59.99
-            </td>
-            <td class=" text-right">
-              <button class=" bg-verde-principal text-white px-4 py-2 rounded hover:scale-105 transition-all">Edit</button>
-            </td>
-          </tr>
-           <tr class="border-t border-t-gray-300 ">
-            <td class="py-4 flex items-center space-x-4">
-              <img src="../../Public/img/productos/corneta.jpg" class="w-16 h-16 object-cover rounded" alt="cornetas">
-              <div>
-                <p class="font-semibold">Cornetas</p>
-                <!-- la descripcion -->
-                <p class="text-gray-500 text-sm">Dual Track Matte</p>
-              </div>
-            </td>
-            <td class="text-center font-bold">
-              <span class="px-2">1</span>
-            </td>
-            <td class="text-center font-semibold">
-              Sonido
-            </td>
-            <td class="text-center text-verde-principal font-semibold">
-              $59.99
-            </td>
-            <td class=" text-right">
-              <button class=" bg-verde-principal text-white px-4 py-2 rounded hover:scale-105 transition-all">Edit</button>
-            </td>
-          </tr>
-           <tr class="border-t border-t-gray-300 ">
-            <td class="py-4 flex items-center space-x-4">
-              <img src="../../Public/img/productos/corneta.jpg" class="w-16 h-16 object-cover rounded" alt="cornetas">
-              <div>
-                <p class="font-semibold">Cornetas</p>
-                <!-- la descripcion -->
-                <p class="text-gray-500 text-sm">Dual Track Matte</p>
-              </div>
-            </td>
-            <td class="text-center font-bold">
-              <span class="px-2">1</span>
-            </td>
-            <td class="text-center font-semibold">
-              Sonido
-            </td>
-            <td class="text-center text-verde-principal font-semibold">
-              $59.99
-            </td>
-            <td class=" text-right">
-              <button class=" bg-verde-principal text-white px-4 py-2 rounded hover:scale-105 transition-all">Edit</button>
-            </td>
-          </tr>
-          
 
+          <?php
+        }            
+        
+        ?>
 
         </tbody>
       </table>

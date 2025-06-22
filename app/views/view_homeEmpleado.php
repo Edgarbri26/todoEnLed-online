@@ -13,7 +13,7 @@
             <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Gestion productos-->
                 <article class="bg-white rounded-lg shadow p-6 hover:scale-105 transition-all duration-300">
-                    <a href="/todoEnLed-online/app/views/view_gestionProducto.php" class="flex flex-col items-center justify-center">
+                    <a href="/todoEnLed-online/app/Controllers/controller_adminProducto.php" class="flex flex-col items-center justify-center">
                         <i class="fa-solid fa-box-open text-2xl bg-verde-menta text-verde-principal rounded-full p-4"></i>        
                         <h2 class="text-xl font-semibold mb-2">Productos</h2>
                         <p class="text-gray-500 text-center">Administra el catálogo de productos.</p>
