@@ -1,11 +1,21 @@
 @import "tailwindcss";
 @plugin "@midudev/tailwind-animations";
 
+@font-face{
+    font-family: 'Rubik';
+    src: url(/assets/Rubik-Italic-VariableFont_wght.woff2) format('woff2');
+    font-style: normal;
+    font: 200 700;
+    font-display: swap;
+}
+
 @theme{
     --color-verde-principal: #8DC63F;
     --color-azul-principal: #2445DA;
     --color-azul-suave: #AFCBFF;
     --color-verde-menta: #D4F1BE;
+
+    --font-sans: 'Rubik', system-ui, sans-serif;
 }
 
 /*asi se crea una clase para ponerle los mismos estilos a una clase*/
