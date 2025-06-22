@@ -21,7 +21,10 @@ if(isset($_POST['restar'])){
 if(isset($_POST['sumar'])){
     $id = $_POST['id'];
     $suma = $gestion->Sumar($id);
-    $aumentar = $gestion->Aumentar($id, $suma);
+    $maximo = $gestion->Maximo($id);
+    if($suma <= $maximo){
+        $aumentar = $gestion->Aumentar($id, $suma);
+    }
     header('Location: controller_cart.php');
     var_dump($suma);
 }

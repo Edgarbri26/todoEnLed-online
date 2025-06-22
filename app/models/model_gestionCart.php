@@ -52,5 +52,15 @@ class Gestion {
         $result = $this->conn->query($sql);
     }
 
+    public function Maximo($id) {
+        $id = (int) $id;
+        $sql = "SELECT * FROM products WHERE id = $id";
+        $result = $this->conn->query($sql);
+        while($row = $result->fetch_assoc()) {
+            $maximo = $row['stock'];
+        }
+        return $maximo;
+    }
+
     
 }
