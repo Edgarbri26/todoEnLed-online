@@ -11,12 +11,12 @@ class Cart {
         }
     }
 
-    public function addProduct($productId, $price) {
+    public function addProduct($userId, $productId, $price) {
         $_SESSION['carrito'][] = $productId;
         $_SESSION['numProducts']++;
-        $stmt = $this->conn->prepare("INSERT INTO carrito (id_producto, cantidad, monto) VALUES (?, 1, ?)");
+        $stmt = $this->conn->prepare("INSERT INTO carrito (id_user, id_producto, cantidad, monto) VALUES (?, ?, 1, ?)");
         $productId = (int) $productId;
-        $stmt->bind_param("id", $productId, $price);
+        $stmt->bind_param("iid", $userId, $productId, $price);
         $stmt->execute();
         $result = $stmt->get_result();
     }
@@ -25,8 +25,9 @@ class Cart {
         return $_SESSION['numProducts'];
     }
 
-    public function getCarrito() {
-        $sql = "SELECT * FROM carrito JOIN products ON carrito.id_producto = products.id;";
+    public function getCarrito($id) {
+        $sql = "SELECT * FROM carrito JOIN products ON carrito.id_producto = products.id
+        WHERE carrito.id_user = $id;";
         $result = $this->conn->query($sql);
         $carrito = [];
         while($row = $result->fetch_assoc()) {

@@ -6,25 +6,35 @@ require_once __DIR__ . '/../../Public/db.php';
 
 $cart = new Cart();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn'])) {
-    $id = $_POST['product_id'];
-    $price = $_POST['product_price'];
-    
-    $cart->addProduct($id, $price);
-    $carrito = $cart->getCarrito();
-    header('Location: controller_index.php');
+if (isset($_SESSION['id_user'])) {
+    $id_user = $_SESSION['id_user']; // Definir siempre que hay usuario logueado
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn'])) {
+        // Solo acceder a $_POST si es POST y existe
+        if (isset($_POST['product_id'], $_POST['product_price'])) {
+            $id_producto = $_POST['product_id'];
+            $price = $_POST['product_price'];
+
+            $cart->addProduct($id_user, $id_producto, $price);
+            header('Location: controller_index.php');
+            exit;
+        }
+    }
+
+    $carrito = $cart->getCarrito($id_user);
+
+    foreach ($carrito as $item) {
+        $id = $item['id_producto'];
+        $producto = $cart->getProducto($id);
+        // Procesar $producto si es necesario
+    }
+
+    $rol = $_SESSION['rol'] ?? 0;
+
+    require_once __DIR__ . '/../views/view_cart.php';
+
+} else {
+    header('Location: controller_login.php');
     exit;
 }
-
-
-$carrito = $cart->getCarrito();
-foreach($carrito as $item){
-    $id = $item['id_producto'];
-    $producto = $cart->getProducto($id);
-}
-
-$rol = $_SESSION['rol'] ?? 0;
-
-
-require_once __DIR__ . '/../views/view_cart.php';
 ?>

@@ -32,6 +32,7 @@ private $conn;
                 if($row["user_name"]==$a && $row["pass"]==$b) {
                    $_SESSION['rol'] = $row['id_rol'];
                    $_SESSION['username'] = $row['user_name'];
+                   $_SESSION['id_user'] = $row['id_user'];
                    return true;
                }                
             }  
