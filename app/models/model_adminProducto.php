@@ -8,7 +8,9 @@ class ProductoAdmin {
     }
 
     public function getProducto() {
-        $sql = "SELECT * FROM products";
+        $sql = "SELECT products.id, products.precio, products.nombre AS nombreProducto, products.stock, products.descripcion, 
+        products.img, products.id_categoria, categorias_productos.nombre FROM products JOIN categorias_productos
+         ON products.id_categoria = categorias_productos.id_categoria;";
         $result = $this->conn->query($sql);
         $producto = [];
         while($row = $result->fetch_assoc()) {
