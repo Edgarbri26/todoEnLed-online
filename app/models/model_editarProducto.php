@@ -25,5 +25,11 @@ SET precio = $a, nombre = '$b', stock = $c, descripcion = '$d', img = '$e', id_c
 WHERE id = $id;";
         $result = $this->conn->query($sql);
     }
+
+    public function agregarProducto($a, $b, $c, $d, $e, $f) {
+        $sql = "INSERT INTO products(precio, nombre, stock, descripcion, img, id_categoria)
+        VALUES($a, '$b', $c, '$d', '$e', $f);";
+        $result = $this->conn->query($sql);
+    }
     
 }

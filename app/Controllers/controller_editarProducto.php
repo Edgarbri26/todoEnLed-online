@@ -23,6 +23,18 @@ if(isset($_POST['edit'])){
     exit;
 }
 
+if(isset($_POST['agregar'])){
+    $precio = $_POST['precio'];
+    $nombre = $_POST['nombre'];
+    $stock = $_POST['stock'];
+    $descripcion = $_POST['descripcion'];
+    $img = $_POST['img'];
+    $id_categoria = $_POST['id_categoria'];
+    $ep->agregarProducto($precio, $nombre, $stock, $descripcion, $img, $id_categoria);
+    header('Location: controller_index.php');
+    exit;
+}
+
 
 require_once __DIR__ . '/../views/view_editarProducto.php';
 ?>

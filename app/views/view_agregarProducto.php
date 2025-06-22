@@ -6,7 +6,7 @@
         <section class=" mt-5 flex justify-center items-center">
             <article class=" mt-5 bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
                 <h2 class="text-2xl font-bold mb-6 text-center">Agregar Nuevo Producto</h2>
-                <form class="flex flex-col gap-2">
+                <form class="flex flex-col gap-2" action="../Controllers/controller_editarProducto.php" method="post">
                     <div class="mb-4">
                         <label class="block mb-1 font-medium" for="nombre">Nombre</label>
                         <input required type="text" id="nombre" name="nombre"
@@ -33,7 +33,7 @@
 
                     <div class="mb-4">
                         <label class="block mb-1 font-medium" for="img">Imagen</label>
-                        <input required type="file" id="img" name="img"
+                        <input required type="text" id="img" name="img"
                             class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-verde-principal">
                     </div>
 
@@ -42,14 +42,15 @@
                         <select id="id_categoria" name="id_categoria"
                             class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-verde-principal">
                             <option value="">Seleccionar categoría</option>
-                            <option value="1">Luces</option>
-                            <option value="2">Cornetas</option>
-                            <option value="3">Seguridad</option>
+                            <option value="1">Nuevo</option>
+                            <option value="2">Seguridad</option>
+                            <option value="3">Iluminacion</option>
+                            <option value="4">Pitos y Sirenas</option>
                         </select>
                     </div>
-                    <button type="submit" 
+                    <button type="submit" name="agregar"
                         class="w-full bg-verde-principal text-white py-2 rounded hover:bg-green-500 cursor-pointer transition-all duration-300">
-                        GuardarProducto
+                        Agregar Producto
                     </button>
                 </form>
             </article>

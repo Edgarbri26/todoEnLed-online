@@ -17,8 +17,9 @@
             </svg>
           </button>
         </form>
-
-        <button class=" bg-verde-principal text-white px-4 py-2 rounded hover:scale-105 transition-all">+ Agregar Producto</button>
+        <a href="/todoEnLed-online/app/views/view_agregarProducto.php">
+          <button class=" bg-verde-principal text-white px-4 py-2 rounded hover:scale-105 transition-all">+ Agregar Producto</button>
+        </a>
       </section>
 
     <section>
