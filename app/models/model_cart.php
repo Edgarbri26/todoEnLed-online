@@ -24,8 +24,16 @@ class Cart
         $result = $stmt->get_result();
     }
 
-    public function getNumProducts()
+    public function getNumProducts($id)
     {
+        $_SESSION['numProducts'] = 0;
+        $sql = "SELECT * FROM carrito WHERE id_user = $id;";
+        $result = $this->conn->query($sql);
+        if($result->num_rows > 0){
+            while ($row = $result->fetch_assoc()) {
+                $_SESSION['numProducts']++;
+            }
+        }
         return $_SESSION['numProducts'];
     }
 

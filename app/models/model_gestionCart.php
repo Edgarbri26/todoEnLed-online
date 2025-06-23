@@ -42,12 +42,14 @@ class Gestion {
     }
 
     public function Eliminar($id) {
+        $_SESSION['numProducts']--;
         $id = (int) $id;
         $sql = "DELETE FROM carrito WHERE id_producto = $id";
         $result = $this->conn->query($sql);
     }
 
     public function EliminarTodo($id) {
+        $_SESSION['numProducts'] = 0;
         $sql = "DELETE FROM carrito WHERE id_user = $id";
         $result = $this->conn->query($sql);
     }

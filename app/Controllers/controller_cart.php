@@ -20,12 +20,14 @@ if (isset($_SESSION['id_user'])) {
                 header('Location: controller_index.php?error=product_exists');
                 exit;
             } else {
+                $cart->getNumProducts($id_user);
                 $cart->addProduct($id_user, $id_producto, $price);
                 header('Location: controller_index.php');
                 exit;
             }
         }
     }
+    $cart->getNumProducts($id_user);
 
     $carrito = $cart->getCarrito($id_user);
 
