@@ -6,8 +6,8 @@
 session_start();
 ?>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php if (isset($_GET['error']) && $_GET['error'] === 'product_exists'): ?>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
     Swal.fire({
       title: 'Producto ya en el carrito',
@@ -20,6 +20,20 @@ session_start();
 <?php
 if (isset($_SESSION['rol'])) {
   $rol = $_SESSION['rol'];
+  $usuario = $_SESSION['username'];
+  $presentasion = $_SESSION['presentasion'];
+  if($presentasion){
+  ?>
+    <script>
+    Swal.fire({
+      title: 'Bienvenido <?php echo "$usuario"?>.',
+      text: 'Tu tienda para accesorios de carros.',
+      icon: 'success'
+    });
+  </script>
+  <?php
+  $_SESSION['presentasion'] = false;
+  }
 } else {
   $rol = 2;
 }
