@@ -48,7 +48,10 @@
               <span class="px-2"><?php echo ($item['rol_name']); ?></span>
             </td>
             <td class=" text-right">
-              <button class=" bg-verde-principal text-white px-4 py-2 rounded hover:scale-105 transition-all">Edit</button>
+              <form action="../Controllers/controller_editarUsuario.php" method="post">
+                <input type="hidden" name="id" value="<?php echo ($item['id_user']); ?>">
+                <button name="btn" class=" bg-verde-principal text-white px-4 py-2 rounded hover:scale-105 transition-all">Edit</button>
+              </form>
             </td>
           </tr>
 
