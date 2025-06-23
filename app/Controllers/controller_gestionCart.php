@@ -15,7 +15,6 @@ if(isset($_POST['restar'])){
     }
     $disminuir = $gestion->Disminuir($id, $resta);
     header('Location: controller_cart.php');
-    var_dump($resta);
 }
 
 if(isset($_POST['sumar'])){
@@ -26,21 +25,18 @@ if(isset($_POST['sumar'])){
         $aumentar = $gestion->Aumentar($id, $suma);
     }
     header('Location: controller_cart.php');
-    var_dump($suma);
 }
 
 if(isset($_POST['eliminar'])){
     $id = $_POST['id'];
     $eliminar = $gestion->Eliminar($id);
     header('Location: controller_cart.php');
-    var_dump($suma);
 }
 
 if(isset($_POST['eliminarTodo'])){
     $id = $_POST['id'];
     $eliminar_todo = $gestion->EliminarTodo($id);
     header('Location: controller_cart.php');
-    var_dump($suma);
 }
 
 

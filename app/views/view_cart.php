@@ -22,7 +22,8 @@
             <tbody>
 
             <?php
-
+    $acumulador = 0;
+    $total = 0;
     foreach ($carrito as $item) {
         $productId = $item['id_producto'];
         $cantidad = $item['cantidad'];
@@ -64,9 +65,13 @@
                     <?php echo ($item['precio']); ?>
                 </td>
             </tr>
+
             <?php
-            }
-        
+            $resultado = $cantidad * $item['precio'];
+            $acumulador += $resultado;
+          }
+          $total = 0;
+          $total = $acumulador + ($acumulador * 0.62);
 ?>
 
             
@@ -92,7 +97,7 @@
         </div>
         <div class="flex justify-between text-sm mb-2">
           <span>Subtotal</span>
-          <span>2,95 $</span>
+          <span><?php echo ($acumulador); ?> $</span>
         </div>
         <div class="flex justify-between text-sm mb-4">
           <span>Cuota IVA (21 %)</span>
@@ -100,7 +105,7 @@
         </div>
         <div class="flex justify-between font-bold text-lg border-t border-t-gray-300 pt-4 mb-4">
           <span>Total</span>
-          <span>3,57 $</span>
+          <span><?php echo ($total); ?> $</span>
         </div>
 
         <label class="inline-flex items-start text-xs">
