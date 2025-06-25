@@ -25,7 +25,16 @@
             <i class="fa-solid fa-cart-shopping text-white text-2xl hover:text-verde-principal "></i>
           </a>
           <span class=" absolute -top-3 -right-2 bg-verde-principal text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-            <?php echo ($_SESSION['numProducts']); ?>
+            <?php 
+            if(isset($_SESSION['numProducts'])){
+
+              echo ($_SESSION['numProducts']); 
+            }else{
+              ?>
+              0
+              <?php
+            }
+            ?>
           </span>
         </div>
       </div>
