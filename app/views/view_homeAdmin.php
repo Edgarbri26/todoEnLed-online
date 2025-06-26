@@ -22,7 +22,7 @@
 
                 <!-- Gestion compras-->
                 <article class="bg-white rounded-lg shadow p-6 flex flex-col items-center justify-center hover:scale-105 transition-all duration-300">
-                    <a href="/todoEnLed-online/app/views/view_gestionCompra.php" class="flex flex-col items-center justify-center">
+                    <a href="/todoEnLed-online/app/Controllers/controller_adminCompras.php" class="flex flex-col items-center justify-center">
                         <i class="fa-solid fa-cart-shopping text-2xl bg-verde-menta text-verde-principal rounded-full p-4"></i>        
                         <h2 class="text-xl font-semibold mb-2">Compras</h2>
                         <p class="text-gray-500 text-center">Gestiona las compras de los clientes.</p>

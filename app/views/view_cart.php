@@ -24,10 +24,11 @@
             <?php
     $acumulador = 0;
     $total = 0;
+    $productos = [];
     foreach ($carrito as $item) {
         $productId = $item['id_producto'];
         $cantidad = $item['cantidad'];
-         
+        $productos[] = $productId; 
             
             
 
@@ -71,7 +72,7 @@
             $acumulador += $resultado;
           }
           $total = 0;
-          $total = $acumulador + ($acumulador * 0.62);
+          $total = $acumulador + ($acumulador * 0.21);
 ?>
 
             
@@ -101,7 +102,7 @@
         </div>
         <div class="flex justify-between text-sm mb-4">
           <span>Cuota IVA (21 %)</span>
-          <span>0,62 $</span>
+          <span>0,21 $</span>
         </div>
         <div class="flex justify-between font-bold text-lg border-t border-t-gray-300 pt-4 mb-4">
           <span>Total</span>
@@ -113,10 +114,15 @@
           <span>Leo y acepto las <a href="#" class="text-blue-600 hover:underline">Condiciones generales de Contratación</a> y <a href="#" class="text-blue-600 hover:underline">Política de privacidad</a></span>
         </label>
 
-        <button type="button" 
-        class="w-full opacity-80 bg-verde-principal text-white py-2 rounded mt-4 hover:opacity-100 transition-opacity duration-300 hover:cursor-pointer">
-          Pagar compra
-        </button>
+        <form action="../Controllers/controller_gestionCart.php" method="post">
+          <input type="hidden" name="usuario" value="<?php echo ($_SESSION['username']); ?>">
+          <input type="hidden" name="productos" value='<?php echo json_encode($productos); ?>'>
+          <input type="hidden" name="total" value="<?php echo ($total); ?>">
+          <button type="submit" name="orden"
+          class="w-full opacity-80 bg-verde-principal text-white py-2 rounded mt-4 hover:opacity-100 transition-opacity duration-300 hover:cursor-pointer">
+            Pagar compra
+          </button>
+        </form>
 </article>
     </section>
   </main>

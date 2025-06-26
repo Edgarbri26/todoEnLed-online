@@ -15,6 +15,37 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                <?php
+
+                foreach($comp as $item){
+                    ?>
+
+                    <tr class="border-t border-gray-300 p-2.5">
+                        <td class="p-2.5 text-center font-bold"><?php echo($item['Usuario']) ?></td>
+                        <td>
+                            <ul class="flex flex-col gap-1 text-center">
+                                <li><?php echo($item['Productos']) ?></li>
+                                <li>Producto 2</li>
+                                <li>Producto 3</li>
+                            </ul>
+                        </td>
+                        <td class="p-2.5 text-center"><?php echo($item['Fecha']) ?></td>
+                        <td class="p-2.5 text-center font-bold text-verde-principal"><?php echo($item['Monto']) ?></td>
+                        <td class="p-2.5 text-center text-orange-500 font-bold"><?php echo($item['EstadoNombre']) ?></td>
+                        <td class="p-2.5 text-center">
+                            <button class="bg-verde-principal text-white px-4 py-2 rounded hover:scale-105 transition-all">Ver</button>
+                            <button class="bg-red-500 text-white px-4 py-2 rounded hover:scale-105 transition-all">Rechazar</button>
+                        </td>
+                    </tr>
+
+
+                    <?php
+                }
+
+                ?>
+
+
                     <tr class="border-t border-gray-300 p-2.5">
                         <td class="p-2.5 text-center font-bold">Juan Perez</td>
                         <td>

@@ -64,5 +64,51 @@ class Gestion {
         return $maximo;
     }
 
+    public function getUserId($username){
+        $stmt = $this->conn->prepare("SELECT id_user FROM users WHERE user_name = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+            $stmt->close();
+            return $row['id_user'];
+        } else {
+            $stmt->close();
+            return -1;
+        }
+        }
+
+    public function InsertarOrden($usuario, $total){
+        $stmt = $this->conn->prepare("INSERT INTO ordenes(user_id, orden_fecha, monto_total, estado_id) 
+        VALUES(?, CURDATE(), ?, 1)");
+        $stmt->bind_param("id", $usuario, $total);    
+        if($stmt->execute()){
+            $new_id = $stmt->insert_id;
+            $stmt->close();
+            return $new_id;
+        } else {
+            $stmt->close();
+            return -1;
+        }
+    }
+
+    public function InsertarOrdenDetalles($orden, $productos){
+        if(count($productos) === 0) return false;
+    
+        $stmt = $this->conn->prepare("INSERT INTO orden_detalles(orden_id, product_id) VALUES(?, ?)");
+        
+        foreach($productos as $producto){
+            $stmt->bind_param("ii", $orden, $producto);
+            if(!$stmt->execute()) {
+                return false;
+            }
+        }
+        $stmt->close();
+        return true;
+    }
+
+
     
 }

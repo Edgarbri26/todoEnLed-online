@@ -39,5 +39,27 @@ if(isset($_POST['eliminarTodo'])){
     header('Location: controller_cart.php');
 }
 
+if(isset($_POST['orden'])){
+        $username = $_POST['usuario'];
+        $productos = json_decode($_POST['productos'], true);
+        if(json_last_error() !== JSON_ERROR_NONE) {
+        die("JSON inválido");
+    }
+    if(!is_numeric($_POST['total'])) die("Total inválido");
+        $total = $_POST['total'];
+        $usuario = $gestion->getUserId($username);
+        if($usuario != -1){
+            $orden = $gestion->InsertarOrden($usuario, $total);
+            if($orden != -1){
+                $gestion->InsertarOrdenDetalles($orden, $productos);
+                $gestion->EliminarTodo($usuario);
+                header('Location: controller_index.php');
+                exit;
+            }
+        }
+        
+
+    }
+
 
 ?>
