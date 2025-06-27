@@ -42,6 +42,7 @@ if(isset($_POST['eliminarTodo'])){
 if(isset($_POST['orden'])){
         $username = $_POST['usuario'];
         $productos = json_decode($_POST['productos'], true);
+        $cantidad = json_decode($_POST['cantidad'], true);
         if(json_last_error() !== JSON_ERROR_NONE) {
         die("JSON inválido");
     }
@@ -51,7 +52,7 @@ if(isset($_POST['orden'])){
         if($usuario != -1){
             $orden = $gestion->InsertarOrden($usuario, $total);
             if($orden != -1){
-                $gestion->InsertarOrdenDetalles($orden, $productos);
+                $gestion->InsertarOrdenDetalles($orden, $productos, $cantidad);
                 $gestion->EliminarTodo($usuario);
                 header('Location: controller_index.php');
                 exit;

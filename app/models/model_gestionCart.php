@@ -1,76 +1,86 @@
 <?php
-class Gestion {
+class Gestion
+{
 
     private $conn;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->conn = Conectar::Conexion();
     }
 
-    public function Restar($id) {
+    public function Restar($id)
+    {
         $id = (int) $id;
         $sql = "SELECT * FROM carrito WHERE id_producto = $id";
         $result = $this->conn->query($sql);
-        while($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch_assoc()) {
             $resta = $row['cantidad'];
         }
         $resta = $resta - 1;
         return $resta;
     }
 
-    public function Disminuir($id, $resta) {
+    public function Disminuir($id, $resta)
+    {
         $id = (int) $id;
         $sql = "UPDATE carrito SET cantidad = $resta WHERE id_producto = $id;";
         $result = $this->conn->query($sql);
     }
 
-    public function Sumar($id) {
+    public function Sumar($id)
+    {
         $id = (int) $id;
         $sql = "SELECT * FROM carrito WHERE id_producto = $id";
         $result = $this->conn->query($sql);
-        while($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch_assoc()) {
             $suma = $row['cantidad'];
         }
         $suma = $suma + 1;
         return $suma;
     }
 
-    public function Aumentar($id, $suma) {
+    public function Aumentar($id, $suma)
+    {
         $id = (int) $id;
         $sql = "UPDATE carrito SET cantidad = $suma WHERE id_producto = $id;";
         $result = $this->conn->query($sql);
     }
 
-    public function Eliminar($id) {
+    public function Eliminar($id)
+    {
         $_SESSION['numProducts']--;
         $id = (int) $id;
         $sql = "DELETE FROM carrito WHERE id_producto = $id";
         $result = $this->conn->query($sql);
     }
 
-    public function EliminarTodo($id) {
+    public function EliminarTodo($id)
+    {
         $_SESSION['numProducts'] = 0;
         $sql = "DELETE FROM carrito WHERE id_user = $id";
         $result = $this->conn->query($sql);
     }
 
-    public function Maximo($id) {
+    public function Maximo($id)
+    {
         $id = (int) $id;
         $sql = "SELECT * FROM products WHERE id = $id";
         $result = $this->conn->query($sql);
-        while($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch_assoc()) {
             $maximo = $row['stock'];
         }
         return $maximo;
     }
 
-    public function getUserId($username){
+    public function getUserId($username)
+    {
         $stmt = $this->conn->prepare("SELECT id_user FROM users WHERE user_name = ?");
         $stmt->bind_param("s", $username);
         $stmt->execute();
         $result = $stmt->get_result();
 
-        if($result->num_rows > 0){
+        if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $stmt->close();
             return $row['id_user'];
@@ -78,13 +88,14 @@ class Gestion {
             $stmt->close();
             return -1;
         }
-        }
+    }
 
-    public function InsertarOrden($usuario, $total){
+    public function InsertarOrden($usuario, $total)
+    {
         $stmt = $this->conn->prepare("INSERT INTO ordenes(user_id, orden_fecha, monto_total, estado_id) 
         VALUES(?, CURDATE(), ?, 1)");
-        $stmt->bind_param("id", $usuario, $total);    
-        if($stmt->execute()){
+        $stmt->bind_param("id", $usuario, $total);
+        if ($stmt->execute()) {
             $new_id = $stmt->insert_id;
             $stmt->close();
             return $new_id;
@@ -94,21 +105,23 @@ class Gestion {
         }
     }
 
-    public function InsertarOrdenDetalles($orden, $productos){
-        if(count($productos) === 0) return false;
-    
-        $stmt = $this->conn->prepare("INSERT INTO orden_detalles(orden_id, product_id) VALUES(?, ?)");
-        
-        foreach($productos as $producto){
-            $stmt->bind_param("ii", $orden, $producto);
-            if(!$stmt->execute()) {
+    public function InsertarOrdenDetalles($orden, $productos, $cantidades)
+    {
+        if (count($productos) === 0 || count($cantidades) === 0) return false;
+
+        $stmt = $this->conn->prepare("INSERT INTO orden_detalles(orden_id, product_id, cantidad) VALUES(?, ?, ?)");
+
+        for ($i = 0; $i < count($productos); $i++) {
+            $producto = $productos[$i];
+            $cantidad = $cantidades[$i];
+            $stmt->bind_param("iii", $orden, $producto, $cantidad);
+            if (!$stmt->execute()) {
+                $stmt->close();
                 return false;
             }
         }
+
         $stmt->close();
         return true;
     }
-
-
-    
 }

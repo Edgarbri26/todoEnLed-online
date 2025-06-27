@@ -25,11 +25,12 @@
     $acumulador = 0;
     $total = 0;
     $productos = [];
+    $cant = [];
     foreach ($carrito as $item) {
         $productId = $item['id_producto'];
         $cantidad = $item['cantidad'];
         $productos[] = $productId; 
-            
+        $cant[] = $cantidad;
             
 
             ?>
@@ -117,6 +118,7 @@
         <form action="../Controllers/controller_gestionCart.php" method="post">
           <input type="hidden" name="usuario" value="<?php echo ($_SESSION['username']); ?>">
           <input type="hidden" name="productos" value='<?php echo json_encode($productos); ?>'>
+          <input type="hidden" name="cantidad" value='<?php echo json_encode($cant); ?>'>
           <input type="hidden" name="total" value="<?php echo ($total); ?>">
           <button type="submit" name="orden"
           class="w-full opacity-80 bg-verde-principal text-white py-2 rounded mt-4 hover:opacity-100 transition-opacity duration-300 hover:cursor-pointer">

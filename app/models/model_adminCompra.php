@@ -11,8 +11,10 @@ class CompraAdmin {
         $sql = "SELECT 
     u.user_name AS Usuario,
     p.Productos,
+    p.Cantidades,
     o.orden_fecha AS Fecha,
     o.estado_id AS EstadoID,
+    o.id_orden AS ID,
     eo.estado AS EstadoNombre,
     FORMAT(o.monto_total, 0) AS Monto
 FROM 
@@ -22,14 +24,15 @@ INNER JOIN
 INNER JOIN 
     (
         SELECT 
-            orden_id,
-            GROUP_CONCAT(p.nombre ORDER BY p.nombre SEPARATOR ', ') AS Productos
+            od.orden_id,
+            GROUP_CONCAT(p.nombre ORDER BY p.nombre SEPARATOR ', ') AS Productos,
+            GROUP_CONCAT(od.cantidad ORDER BY p.nombre SEPARATOR ', ') AS Cantidades
         FROM 
             orden_detalles od
         INNER JOIN 
             products p ON od.product_id = p.id
         GROUP BY 
-            orden_id
+            od.orden_id
     ) p ON o.id_orden = p.orden_id
 INNER JOIN
     estado_orden eo ON o.estado_id = eo.id_estado
