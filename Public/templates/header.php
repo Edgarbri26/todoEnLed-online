@@ -2,20 +2,32 @@
   <header class=" bg-azul-principal shadow sticky top-0 z-50 px-24 text-center">
     <div class="max-w-screen-xl mx-auto px-4 py-4 grid grid-cols-[1fr_auto_1fr] items-center">
       <!-- Search icon -->
-      <div class="flex items-center space-x-4">
-  <form method="get" action="" class="flex items-center space-x-2">
+   <div class="flex items-center space-x-4">
+  <form method="get" action="" class="flex items-center space-x-2 bg-white rounded-full shadow-lg px-3 py-1 border-2 border-[#0057FF] hover:border-[#25D366] transition-all duration-300">
+    <!-- Icono decorativo a la izquierda del input -->
+    <span class="flex items-center justify-center">
+      <!-- Ejemplo: rayo personalizado SVG -->
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path d="M13 2L3 14h7v8l10-12h-7V2z" fill="#25D366"/>
+      </svg>
+    </span>
     <input 
       type="text" 
       name="search" 
       placeholder="Buscar producto..." 
-      class="border rounded px-2 py-1"
+      class="bg-transparent focus:outline-none px-4 py-2 rounded-full text-[#0057FF] placeholder:text-[#25D366] font-semibold w-48 md:w-64 transition-all duration-300"
       value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>"
     >
-    <button type="submit" class="text-white hover:text-black">
-      <i class="fa-solid fa-magnifying-glass text-2xl hover:text-verde-principal"></i>
+    <button type="submit" class="flex items-center justify-center bg-[#25D366] hover:bg-[#0057FF] text-white rounded-full w-10 h-10 shadow transition-all duration-300">
+      <!-- Icono lupa SVG personalizado -->
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+        <circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="2" fill="none"/>
+        <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      </svg>
     </button>
   </form>
 </div>
+
 
 
       <div class="flex flex-col items-center">
