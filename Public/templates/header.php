@@ -3,10 +3,20 @@
     <div class="max-w-screen-xl mx-auto px-4 py-4 grid grid-cols-[1fr_auto_1fr] items-center">
       <!-- Search icon -->
       <div class="flex items-center space-x-4">
-        <button type="button" class=" text-white hover:text-black">
-          <i class="fa-solid fa-magnifying-glass text-2xl hover:text-verde-principal"></i>
-        </button>
-      </div>
+  <form method="get" action="" class="flex items-center space-x-2">
+    <input 
+      type="text" 
+      name="search" 
+      placeholder="Buscar producto..." 
+      class="border rounded px-2 py-1"
+      value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>"
+    >
+    <button type="submit" class="text-white hover:text-black">
+      <i class="fa-solid fa-magnifying-glass text-2xl hover:text-verde-principal"></i>
+    </button>
+  </form>
+</div>
+
 
       <div class="flex flex-col items-center">
         <a href="/todoEnLed-online/app/Controllers/controller_index.php">
