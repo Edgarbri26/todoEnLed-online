@@ -1,5 +1,5 @@
 <?php require '../../Public/templates/head.php'; ?>
-<?php require '../../Public/templates/header.php'; ?>
+<?php require '../../Public/templates/headerAdmin.php'; ?>
 
 <body class="bg-gray-100">
     <main class="main-container">
