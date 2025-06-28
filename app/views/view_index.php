@@ -3,10 +3,10 @@
 
 
 <?php
-session_start();
+// session_start();
 ?>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
 <?php if (isset($_GET['error']) && $_GET['error'] === 'product_exists'): ?>
   <script>
     Swal.fire({
@@ -48,29 +48,18 @@ require __DIR__ . '/../../Public/templates/header.php';
 ?>
 
 <main class="main-container">
-  <section class=" mx-2.5 text-center max-w-screen-xl mx-au" id="inicio">
-    <?php
-    if ($rol == 3 || $rol == 1) {
-      $user = ($rol == 1) ? "gerente" : "empleado";
-      echo "<h1 class='slogan'>Vista <br> $user, <span>Todo en LED.</span></h1>
-            <p>todo en accesorios para carros</p>
-            <a href='src/php/vistas/gestionarProducto.php' class='btn'>Gestion de productos</a>
-            <button class='btn' type='button'>solicitudes de compra</button>";
-    } else {
-      echo "<h1 class=' font-bold text-6xl '>Tu camino, <br>Tu estilo,  <span class=' text-verde-principal'>Todo en LED.</span></h1>
-            <p class=' text-2xl text-gray-600 font-medium'>todo en accesorios para carros</p>";
-    }
-    ?>
+  <section class=" mx-2.5 text-center max-w-screen-xl " id="inicio">
+    <h1 class=' font-bold text-6xl '>Tu camino, <br>Tu estilo,  <span class=' text-verde-principal'>Todo en LED.</span></h1>
+    <p class=' text-2xl text-gray-600 font-medium'>todo en accesorios para carros</p>
   </section>
-
-
-
 
   <?php if ($rol != 3): ?>
     <h2 class=" text-4xl text-verde-principal my-5 text-center font-bold">Ultimo agregado</h2>
     <section class=" grid grid-cols-1 my-2.5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-2.5">
       <?php foreach ($products as $row): ?>
-        <card-product class="hover:scale-105 transition-all duration-300" id="<?php echo $row['id']; ?>" name="<?php echo $row['nombre']; ?>" price="<?php echo $row['precio']; ?>" desc="<?php echo $row['descripcion']; ?>" img="<?php echo $row['img']; ?>"></card-product>
+        <a href="/todoEnLed-online/app/Controllers/controller_product.php?id=<?php echo $row['id']; ?>"> 
+          <card-product class="hover:scale-105 transition-all duration-300" id="<?php echo $row['id']; ?>" name="<?php echo $row['nombre']; ?>" price="<?php echo $row['precio']; ?>" desc="<?php echo $row['descripcion']; ?>" img="<?php echo $row['img']; ?>"></card-product>
+        </a>
       <?php endforeach; ?>
     </section>
   <?php endif; ?>

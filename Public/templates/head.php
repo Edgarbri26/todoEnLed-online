@@ -10,6 +10,8 @@
   <!--link rel="stylesheet" href="/todoEnLed-online/Public/css/inicio.css"-->
   <link rel="icon" href="/todoEnLed-online/Public/img/logo.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="/todoEnLed-online/node_modules/sweetalert2/dist/sweetalert2.min.css">
+  <script src="/todoEnLed-online/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
   <title>TodoEnLed</title>
 </head>
 <body class="bg-white">

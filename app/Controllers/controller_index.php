@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 
 require_once __DIR__ . '/../models/model_product.php';
 require_once __DIR__ . '/../../Public/db.php';

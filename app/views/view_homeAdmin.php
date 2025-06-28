@@ -1,6 +1,16 @@
 <?php require '../../Public/templates/head.php'; ?>
 <?php require '../../Public/templates/headerAdmin.php'; ?>
 
+<?php 
+    $rol = $_SESSION['rol'];
+    if ($rol == 1) {
+        header('Location: /todoEnLed-online/app/views/view_homeAdmin.php');
+    }else{
+        header("Location: ../viewa/Error404.html");
+        
+    }
+?>
+
 
     <main class="main-container">
 
