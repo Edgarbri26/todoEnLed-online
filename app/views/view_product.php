@@ -58,7 +58,7 @@ if (isset($_POST['color'])) {
           <p class="text-gray-600 mb-4"><?php echo $product['descripcion'] ?? 'Descripción del producto.'; ?></p>
           
           <!-- Formulario de cantidad y color -->
-          <form method="post" class="space-y-4">
+          <form method="post" action="../Controllers/controller_cart.php" class="space-y-4">
             <!-- Opciones de color -->
             <div>
               <span class="font-semibold">Opciones:</span>
@@ -84,7 +84,15 @@ if (isset($_POST['color'])) {
               </div>
             </div>
             <!-- Botón agregar al carrito -->
-            <button type="submit" formaction="../Controllers/controller_cart.php" class="w-full h-12 border-2 border-verde-principal text-verde-principal py-3 rounded font-bold text-lg hover:bg-verde-principal hover:text-white transition mt-4">
+            <?php
+              if(isset($_GET['id'])){
+                $id = $_GET['id'];
+              }
+
+            ?>
+            <input type="hidden" name="product_id" value="<?php echo $id; ?>">
+            <input type="hidden" name="product_price" value="<?php echo $product['precio']; ?>">
+            <button name="btn" type="submit" class="w-full h-12 border-2 border-verde-principal text-verde-principal py-3 rounded font-bold text-lg hover:bg-verde-principal hover:text-white transition mt-4">
               Agregar al carrito - $<?php echo $product['precio']; ?>
             </button>
             <button type="button" class="w-full h-12 bg-verde-principal text-white py-3 rounded font-bold text-lg hover:bg-verde-principal hover:text-white transition">Comprar ahora</button>

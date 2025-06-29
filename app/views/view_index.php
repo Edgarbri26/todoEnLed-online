@@ -6,7 +6,7 @@
 // session_start();
 ?>
 
-<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php if (isset($_GET['error']) && $_GET['error'] === 'product_exists'): ?>
   <script>
     Swal.fire({
