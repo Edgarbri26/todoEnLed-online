@@ -39,9 +39,11 @@
 
 
       <div class="flex items-center justify-end space-x-4 h-full">
+        <!-- icono de usuario -->
         <a href="../Controllers/controller_login.php">
           <i class="fa-solid fa-user text-white text-2xl hover:text-verde-principal"></i>
         </a>
+        <!-- icono de carrito -->
         <div class="relative">
           <a href="/todoEnLed-online/app/Controllers/controller_cart.php" class="text-gray-700 hover:text-black">
             <i class="fa-solid fa-cart-shopping text-white text-2xl hover:text-verde-principal "></i>

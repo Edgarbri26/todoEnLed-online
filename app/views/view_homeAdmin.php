@@ -46,7 +46,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1) {
 
                 <!-- Configuración-->
                 <article class="bg-white rounded-lg shadow p-6 flex flex-col items-center justify-center hover:scale-105 transition-all duration-300">
-                    <a href="/todoEnLed-online/app/views/view_gestionProducto.php" class="flex flex-col items-center justify-center">
+                    <a href="/todoEnLed-online/app/views/view_config.php" class="flex flex-col items-center justify-center">
                         <i class="fa-solid fa-gear text-2xl bg-verde-menta text-verde-principal rounded-full p-4"></i>        
                         <h2 class="text-xl font-semibold mb-2">Configuración</h2>
                         <p class="text-gray-500 text-center">Configura los textos e imágenes de la página.</p>
