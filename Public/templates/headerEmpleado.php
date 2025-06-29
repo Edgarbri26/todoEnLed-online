@@ -30,7 +30,15 @@
 
                     <!--contador de notificaciones-->
                     <span class="absolute -top-1 -right-3 bg-verde-principal text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                        3
+                        <?php 
+                        if(isset($_SESSION['numCompras'])){
+                            echo ($_SESSION['numCompras']);
+                        }else{
+                            ?>
+                            0
+                            <?php
+                        }
+                        ?>    
                     </span>
                 </div>
             </div>

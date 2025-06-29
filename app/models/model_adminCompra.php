@@ -46,5 +46,16 @@ ORDER BY
         return $compra;
     }
 
+    public function getNumCompras(){
+        $_SESSION['numCompras'] = 0;
+        $sql = "SELECT * FROM ordenes WHERE estado_id != 4;";
+        $result = $this->conn->query($sql);
+        if($result->num_rows > 0){
+            while ($row = $result->fetch_assoc()) {
+                $_SESSION['numCompras']++;
+            }
+        }
+        return $_SESSION['numCompras'];
+    }
     
 }
