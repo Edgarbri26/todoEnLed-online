@@ -24,7 +24,7 @@
                 </a>
                 <div class="relative">
                     <!--icono de notificaciones-->
-                    <a href="/todoEnLed-online/app/views/view_gestionCompra.php" class="text-gray-700 hover:text-black">
+                    <a href="/todoEnLed-online/app/Controllers/controller_adminCompras.php" class="text-gray-700 hover:text-black">
                         <i class="fa-solid fa-bell text-white text-2xl hover:text-verde-principal"></i>
                     </a>
 
