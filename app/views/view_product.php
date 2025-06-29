@@ -58,7 +58,7 @@ if (isset($_POST['color'])) {
           <p class="text-gray-600 mb-4"><?php echo $product['descripcion'] ?? 'Descripción del producto.'; ?></p>
           
           <!-- Formulario de cantidad y color -->
-          <form method="post" action="../Controllers/controller_cart.php" class="space-y-4">
+          <form id="carrito" method="post" action="../Controllers/controller_cart.php" class="space-y-4">
             <!-- Opciones de color -->
             <div>
               <span class="font-semibold">Opciones:</span>
@@ -67,22 +67,22 @@ if (isset($_POST['color'])) {
                 $colores = ['Azul', 'Rosa', 'Plata', 'Verde'];
                 foreach ($colores as $c) {
                   $selected = ($color === $c) ? 'border-2 border-verde-principal text-verde-principal font-bold' : 'hover:bg-gray-100';
-                  echo "<button type='submit' name='color' value='$c' class='px-4 py-1 border rounded $selected focus:outline-none'>$c</button>";
+                  echo "<button type='button' name='color' value='$c' class='px-4 py-1 border rounded $selected focus:outline-none'>$c</button>";
                 }
                 ?>
               </div>
             </div>
             <!-- Selector de cantidad -->
-            <div>
+            <!-- <div>
               <span class="font-semibold">Cantidad:</span>
               <div class="flex items-center mt-2">
-                <button type="submit" name="restar" class="border border-gray-300 rounded-l px-3 py-1 text-lg hover:bg-gray-100">-</button>
+                <button type="button" name="restar" class="border border-gray-300 rounded-l px-3 py-1 text-lg hover:bg-gray-100">-</button>
                 <span class="px-4 py-1 border-t border-b border-gray-300"><?php echo $cantidad; ?></span>
-                <button type="submit" name="sumar" class="border border-gray-300 rounded-r px-3 py-1 text-lg hover:bg-gray-100">+</button>
+                <button type="button" name="sumar" class="border border-gray-300 rounded-r px-3 py-1 text-lg hover:bg-gray-100">+</button>
                 <input type="hidden" name="cantidad" value="<?php echo $cantidad; ?>">
                 <input type="hidden" name="color" value="<?php echo $color; ?>">
               </div>
-            </div>
+            </div> -->
             <!-- Botón agregar al carrito -->
             <?php
               if(isset($_GET['id'])){
@@ -92,7 +92,7 @@ if (isset($_POST['color'])) {
             ?>
             <input type="hidden" name="product_id" value="<?php echo $id; ?>">
             <input type="hidden" name="product_price" value="<?php echo $product['precio']; ?>">
-            <button name="btn" type="submit" class="w-full h-12 border-2 border-verde-principal text-verde-principal py-3 rounded font-bold text-lg hover:bg-verde-principal hover:text-white transition mt-4">
+            <button id="btnAgregarCarrito" name="btn" type="submit" value="agregar" class="w-full h-12 border-2 border-verde-principal text-verde-principal py-3 rounded font-bold text-lg hover:bg-verde-principal hover:text-white transition mt-4">
               Agregar al carrito - $<?php echo $product['precio']; ?>
             </button>
             <button type="button" class="w-full h-12 bg-verde-principal text-white py-3 rounded font-bold text-lg hover:bg-verde-principal hover:text-white transition">Comprar ahora</button>
@@ -102,5 +102,36 @@ if (isset($_POST['color'])) {
     </article>
   </section>
 </main>
+
+<script>
+document.getElementById('btnAgregarCarrito').addEventListener('click', function(e) {
+  e.preventDefault(); // Prevenir envío inmediato
+
+  Swal.fire({
+    title: '¿Agregar producto al carrito?',
+    text: "¿Estás seguro que deseas agregar este producto?",
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sí, agregar',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Opción simple: crear input hidden temporal con el nombre y valor del botón
+      let form = document.getElementById('carrito');
+
+      // Crear input hidden temporal para 'btn'
+      let input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'btn';
+      input.value = e.target.value || 'agregar'; // valor del botón o default
+      form.appendChild(input);
+
+      form.submit();
+    }
+  });
+});
+</script>
 
 <?php require '../../Public/templates/footer.php'; ?>
