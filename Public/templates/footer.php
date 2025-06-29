@@ -2,33 +2,41 @@
 <script src="src/js/compents/todoEnLed-header.js"></script>
   <script src="src/js/script.js"></script>
 
-  <footer class="bg-azul-principal text-white py-6 col-span-2">
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-    <!-- Logo y derechos -->
-    <div class="flex flex-col items-center md:items-start">
-      <img src="https://cdn.shopify.com/s/files/1/0554/7045/7024/files/1736366062710-767533264-CASHEAONLINE-04.jpg?v=1736366073"
-           alt="logo cashea"
-           class="rounded-2xl h-10 object-cover mb-2.5">
-      <p class="text-center md:text-left text-sm">Todos los derechos reservados &copy; <?php echo date('Y'); ?> TodoEnLed</p>
-    </div>
-    <!-- Iconos de redes sociales -->
-    <div class="flex gap-6 mt-4 md:mt-0">
+  <footer class="bg-azul-principal text-white py-8">
+  <div class="max-w-7xl mx-auto flex flex-col items-center gap-6">
+    <!-- Iconos de redes sociales a negativo, tamaño aumentado -->
+    <div class="flex gap-10 mb-2">
       <!-- Mercado Libre -->
-      <a href="https://www.mercadolibre.com/" target="_blank" aria-label="Mercado Libre" class="hover:text-yellow-400 transition">
-        <!-- Inserta aquí el SVG del icono de Mercado Libre -->
-        <svg width="28" height="28" viewBox="0 0 32 32" fill="currentColor"><!-- SVG aquí --></svg>
+      <a href="https://www.mercadolibre.com/" target="_blank" aria-label="Mercado Libre" class="transition hover:text-yellow-400 flex flex-col items-center gap-1">
+        <svg class="w-12 h-12" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="16" cy="16" rx="14" ry="10" stroke="currentColor" stroke-width="2" />
+          <path d="M10 16c2 2 10 2 12 0" stroke="currentColor" stroke-width="2" />
+        </svg>
+        <span class="text-sm font-semibold text-white select-none">Mercado Libre</span>
       </a>
       <!-- Instagram -->
-      <a href="https://www.instagram.com/tuusuario" target="_blank" aria-label="Instagram" class="hover:text-pink-400 transition">
-        <!-- Inserta aquí el SVG del icono de Instagram -->
-        <svg width="28" height="28" viewBox="0 0 32 32" fill="currentColor"><!-- SVG aquí --></svg>
+      <a href="https://www.instagram.com/tuusuario" target="_blank" aria-label="Instagram" class="transition hover:text-pink-400 
+      flex flex-col items-center gap-1">
+        <svg class="w-12 h-12" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="7" y="7" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2" />
+          <circle cx="16" cy="16" r="5" stroke="currentColor" stroke-width="2" />
+          <circle cx="22" cy="10" r="1" fill="currentColor" />
+        </svg>
+        <span class="text-sm font-semibold text-white select-none">Instagram</span>
       </a>
       <!-- Facebook -->
-      <a href="https://www.facebook.com/tuusuario" target="_blank" aria-label="Facebook" class="hover:text-blue-400 transition">
-        <!-- Inserta aquí el SVG del icono de Facebook -->
-        <svg width="28" height="28" viewBox="0 0 32 32" fill="currentColor"><!-- SVG aquí --></svg>
+      <a href="https://www.facebook.com/tuusuario" target="_blank" aria-label="Facebook" class="transition hover:text-blue-400 flex flex-col items-center gap-1">
+        <svg class="w-12 h-12" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="8" width="16" height="16" rx="4" stroke="currentColor" stroke-width="2" />
+          <path d="M18 13h2v-3h-2c-2 0-3 1-3 3v2h-2v3h2v6h3v-6h2l1-3h-3v-2c0-.5.5-1 1-1z" stroke="currentColor" stroke-width="2" />
+        </svg>
+        <span class="text-sm font-semibold text-white select-none">Facebook</span>
       </a>
     </div>
+    <!-- Derechos reservados -->
+    <p class="text-center text-sm mt-2">
+      Todos los derechos reservados &copy; <?php echo date('Y'); ?> TodoEnLed
+    </p>
   </div>
 </footer>
 
