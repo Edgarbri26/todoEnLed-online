@@ -1,4 +1,5 @@
-<body class="bg-white grid grid-cols-[250px_1fr] grid-rows-[auto_1fr_auto] min-h-screen"">
+
+<body class="bg-gray-200 grid grid-cols-[250px_1fr] grid-rows-[auto_1fr_auto] min-h-screen"">
 
     <header class=" sticky bg-azul-principal shadow top-0 px-24 text-center  col-span-2">
         <div class="max-w-screen-xl mx-auto px-4 py-4 grid grid-cols-[1fr_auto_1fr] items-center">
@@ -12,7 +13,11 @@
             <h1 class="text-white text-2xl font-bold text-center">
                 TodoEnLed
                 <span class="text-verde-principal">
-                    Administrador
+                    <?php if($_SESSION['rol'] == 1){ ?>
+                        Administrador
+                    <?php } else{ ?>
+                        Empleado
+                    <?php } ?>
                 </span>
             </h1>
 

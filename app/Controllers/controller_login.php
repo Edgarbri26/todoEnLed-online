@@ -16,11 +16,9 @@ if (isset($_POST['button'])) {
         $id_user = $_SESSION['id_user'];
         $cart->getNumProducts($id_user);
         $rol = $_SESSION['rol'];
-        if ($rol == 1) {
+        if ($rol == 1 || $rol == 3) {
             header('Location: /todoEnLed-online/app/views/view_homeAdmin.php');
-        } else if ($rol == 3) {
-            header('Location: /todoEnLed-online/app/views/view_homeEmpleado.php');
-        }else{
+        } else{
             header("Location: ../Controllers/controller_index.php");
         }
         exit();

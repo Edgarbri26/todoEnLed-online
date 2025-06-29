@@ -1,11 +1,23 @@
+<?php require_once '../../Public/templates/head.php'; ?>
 <?php
-    require_once '../../Public/templates/head.php';
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1) {
+    header("Location: ../views/Error404.html");
+    exit();
+}
+?>
+<?php
     require_once '../../Public/templates/headerAdmin.php';
 ?>
 
 
 <main class="main-container">
-    <h1 class="text-4xl font-bold mb-6 text-center">Configuración</h1>
+    <section class="flex gap-4 items-center justify-center">
+        <a href="/todoEnLed-online/app/views/view_homeAdmin.php">
+            <i class="fa-solid fa-arrow-left text-4xl mb-10 text-verde-principal rounded-full "></i>
+        </a>
+        <h1 class="text-6xl font-bold text-center mb-10">Configuración de <span class="text-verde-principal">Página Inicial</span></h1>
+    </section>
+
     <section class="mt-5 flex justify-center items-center gap-4 ">
         <article class="mt-5 bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
             <h2 class="text-2xl font-semibold mb-6 text-center">Título de la página inicial</h2>

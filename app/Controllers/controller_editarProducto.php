@@ -19,7 +19,7 @@ if(isset($_POST['edit'])){
     $img = $_POST['img'];
     $id_categoria = $_POST['id_categoria'];
     $ep->modificarProducto($id, $precio, $nombre, $stock, $descripcion, $img, $id_categoria);
-    header('Location: controller_index.php');
+    header('Location: controller_adminProducto.php');
     exit;
 }
 

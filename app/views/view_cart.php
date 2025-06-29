@@ -4,7 +4,10 @@
 
 <body class="bg-gray-50 font-sans">
   <main class="main-container">
-    <h1 class="text-3xl font-bold mb-6">Carrito de compra</h1>
+    <section class="flex gap-4 items-center justify-center">
+        <h1 class="text-6xl font-bold text-center mb-10">Carrito de <span class="text-verde-principal">compra</span></h1>
+    </section>
+
 
     <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
       <!--artiiculos en el carrito-->
@@ -59,12 +62,12 @@
                   <form action="../Controllers/controller_gestionCart.php" method="post">
                     <input type="hidden" name="id" value="<?php echo "$productId"?>">
                     <button type="submit" name="eliminar" class="ml-2 text-gray-400 hover:text-red-500">
-                        🗑️
+                        <i class="fa-solid fa-trash"></i>
                     </button>
                   </form>
                 </td>
-                <td class="text-right text-verde-principal font-semibold">
-                    <?php echo ($item['precio']); ?>
+                <td class="text-right text-verde-principal font-bold">
+                    <?php echo ($item['precio']) . " $"; ?>
                 </td>
             </tr>
 
@@ -82,9 +85,9 @@
           </table>
           <form action="../Controllers/controller_gestionCart.php" method="post">
             <input type="hidden" name="id" value="<?php echo ($item['id_user']); ?>">
-            <button type="submit" name="eliminarTodo" class="mt-6 flex items-center bg-verde-principal border border-gray-300 px-4 py-2 rounded hover:bg-red-100">
-             🗑 Vaciar carrito
-           </button>
+            <button type="submit" name="eliminarTodo" class=" text-white mt-6 flex items-center bg-verde-principal border border-gray-300 px-4 py-2 rounded hover:bg-verde-principal/80 hover:cursor-pointer transition-all duration-300">
+              <i class="fa-solid fa-trash mr-2"></i>  Vaciar carrito
+            </button>
           </form>
       </article>
       
@@ -93,10 +96,6 @@
       <!--resumen -->
       <article class="bg-white p-6 rounded-xl shadow sticky top-6 h-fit">
         <h2 class="text-lg font-semibold mb-4">Resumen de compra</h2>
-        <div class="flex justify-between text-sm mb-2">
-          <span>Descuentos</span>
-          <span class="text-green-600">26,00 $</span>
-        </div>
         <div class="flex justify-between text-sm mb-2">
           <span>Subtotal</span>
           <span><?php echo ($acumulador); ?> $</span>

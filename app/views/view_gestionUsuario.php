@@ -1,9 +1,19 @@
 <?php require '../../Public/templates/head.php'; ?>
-<?php require '../../Public/templates/headerEmpleado.php'; ?>
+<?php
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1) {
+    header("Location: ../views/Error404.html");
+    exit();
+}
+?>
+<?php require '../../Public/templates/headerAdmin.php'; ?>
 
     <main class="main-container">
-        <div class="max-w-7xl mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-6">Gestión de Usuarios</h1>
+        <section class="flex gap-4 items-center justify-center">
+            <a href="/todoEnLed-online/app/views/view_homeAdmin.php">
+                <i class="fa-solid fa-arrow-left text-4xl mb-10 text-verde-principal rounded-full "></i>
+            </a>
+            <h1 class="text-6xl font-bold text-center mb-10">Gestión de <span class="text-verde-principal">Usuarios</span></h1>
+        </section>
 
     <!-- Botón agregar producto -->
       <section class="flex justify-between mb-4">
@@ -27,7 +37,7 @@
       <table class="w-full text-sm text-left overflow-x-auto h-auto ">
         <thead class="border-b">
             <tr class="text-gray-400">
-              <th class="py-2">Nombre</th>
+              <th class="py-2">Usuario</th>
               <th class="py-2 text-center">Rol</th>
             </tr>
         </thead>

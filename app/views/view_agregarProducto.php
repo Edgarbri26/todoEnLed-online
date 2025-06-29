@@ -1,11 +1,22 @@
 <?php require '../../Public/templates/head.php'; ?>
+<?php
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1 && $_SESSION['rol'] != 3) {
+    header("Location: ../views/Error404.html");
+    exit();
+}
+?>
 <?php require '../../Public/templates/headerAdmin.php'; ?>
 
 <body class="bg-gray-100">
     <main class="main-container">
+        <section class="flex gap-4 items-center justify-center">
+            <a href="/todoEnLed-online/app/Controllers/controller_adminProducto.php">
+                <i class="fa-solid fa-arrow-left text-4xl mb-10 text-verde-principal rounded-full "></i>
+            </a>
+            <h1 class="text-6xl font-bold text-center mb-10">Agregar <span class="text-verde-principal">Producto</span></h1>
+        </section>
         <section class=" mt-5 flex justify-center items-center">
             <article class=" mt-5 bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
-                <h2 class="text-2xl font-bold mb-6 text-center">Agregar Nuevo Producto</h2>
                 <form class="flex flex-col gap-2" action="../Controllers/controller_editarProducto.php" method="post">
                     <div class="mb-4">
                         <label class="block mb-1 font-medium" for="nombre">Nombre</label>
