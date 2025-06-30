@@ -8,7 +8,7 @@
       
       <form action="../Controllers/controller_login.php" method="post" class="space-y-4">
         <div>
-          <label for="username" class="block text-sm font-medium text-gray-700">Correo electrónico</label>
+          <label for="username" class="block text-sm font-medium text-gray-700">Usuario</label>
           <input type="text" name="username" id="username" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-verde-principal" required>
         </div>
 
