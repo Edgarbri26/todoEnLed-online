@@ -5,24 +5,25 @@
     <!-- Iconos de redes sociales a negativo, tamaño aumentado -->
     <div class="flex gap-10 mb-2">
   <!-- Mercado Libre -->
-  <a href="https://www.mercadolibre.com/" target="_blank" aria-label="Mercado Libre"
+  <a href="https://www.mercadolibre.com.ve/pagina/todoenledbabilon#from=share_eshop" target="_blank" aria-label="Mercado Libre"
      class="transition hover:text-yellow-400 flex flex-col items-center min-w-[110px]">
     <svg class="w-12 h-12 mb-2" viewBox="0 0 32 32" fill="none">
       <ellipse cx="16" cy="16" rx="14" ry="10" stroke="currentColor" stroke-width="2" />
       <path d="M10 16c2 2 10 2 12 0" stroke="currentColor" stroke-width="2" />
     </svg>
-    <span class="text-sm font-semibold text-white select-none text-center"></span>
+    <span class="text-sm font-semibold text-white select-none text-center">Mercado Libre</span>
   </a>
   <!-- Instagram -->
-  <a href="https://www.instagram.com/tuusuario" target="_blank" aria-label="Instagram"
+  <a href="https://www.instagram.com/darobabilon?igsh=ejNhNTJnb3RwMjl5" target="_blank" aria-label="Instagram"
      class="transition hover:text-pink-400 flex flex-col items-center min-w-[90px]">
     <svg class="w-12 h-12 mb-2" viewBox="0 0 32 32" fill="none">
       <rect x="7" y="7" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2" />
       <circle cx="16" cy="16" r="5" stroke="currentColor" stroke-width="2" />
       <circle cx="22" cy="10" r="1" fill="currentColor" />
     </svg>
-    <span class="text-sm font-semibold text-white select-none text-center"></span>
+    <span class="text-sm font-semibold text-white select-none text-center">Instagram</span>
   </a>
+
   <!-- Facebook -->
   <a href="https://www.facebook.com/tuusuario" target="_blank" aria-label="Facebook"
      class="transition hover:text-blue-400 flex flex-col items-center min-w-[90px]">
@@ -30,7 +31,7 @@
       <rect x="8" y="8" width="16" height="16" rx="4" stroke="currentColor" stroke-width="2" />
       <path d="M18 13h2v-3h-2c-2 0-3 1-3 3v2h-2v3h2v6h3v-6h2l1-3h-3v-2c0-.5.5-1 1-1z" stroke="currentColor" stroke-width="2" />
     </svg>
-    <span class="text-sm font-semibold text-white select-none text-center"></span>
+    <span class="text-sm font-semibold text-white select-none text-center">Facebook</span>
   </a>
 </div>
 
