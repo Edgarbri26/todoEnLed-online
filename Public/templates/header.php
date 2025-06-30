@@ -57,7 +57,7 @@
   </div>
 
     <!-- npavigation -->
-    <div class="flex items-center justify-start">
+    <!-- <div class="flex items-center justify-start max-w-screen-xl mx-auto">
     <select name="" id="" class="text-white bg-transparent border-none hover:text-verde-principal mb-2">
       <option class="text-black" value="">Categorias</option>
       <option class="text-black" value="">New</option>
@@ -66,7 +66,7 @@
       <option class="text-black" value="">Seguridad</option>
       <option class="text-black" value="">Oferta</option>
     </select>
-    </div>
+    </div> -->
     <!-- <nav class="">
       <div class="max-w-screen-xl mx-auto px-4 py-2 flex justify-center space-x-6 text-lg font-semibold text-white gap-2.5">
         <a href="#" class="hover:text-verde-principal">New</a>
