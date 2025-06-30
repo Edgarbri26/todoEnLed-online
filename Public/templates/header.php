@@ -57,7 +57,17 @@
   </div>
 
     <!-- npavigation -->
-    <nav class="">
+    <div class="flex items-center justify-start">
+    <select name="" id="" class="text-white bg-transparent border-none hover:text-verde-principal mb-2">
+      <option class="text-black" value="">Categorias</option>
+      <option class="text-black" value="">New</option>
+      <option class="text-black" value="">Luces</option>
+      <option class="text-black" value="">Cornetas</option>
+      <option class="text-black" value="">Seguridad</option>
+      <option class="text-black" value="">Oferta</option>
+    </select>
+    </div>
+    <!-- <nav class="">
       <div class="max-w-screen-xl mx-auto px-4 py-2 flex justify-center space-x-6 text-lg font-semibold text-white gap-2.5">
         <a href="#" class="hover:text-verde-principal">New</a>
         <a href="#" class="hover:text-verde-principal">Luces</a>
@@ -68,5 +78,5 @@
         <a href="#" class="hover:text-verde-principal">filtros</a>
         <a href="#" class="hover:text-verde-principal">Leds</a>
       </div>
-    </nav>
+    </nav> -->
   </header>
