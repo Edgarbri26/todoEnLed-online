@@ -38,7 +38,7 @@
 
     <!-- Derechos reservados -->
     <p class="text-center text-sm mt-2">
-      Todos los derechos reservados &copy; <?php echo date('Y'); ?> TodoEnLed
+      Todos los derechos reservados &copy; <?php echo date('Y'); ?> TODOENLED C.A.
     </p>
   </div>
 </footer>
