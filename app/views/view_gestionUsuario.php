@@ -16,7 +16,13 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1) {
         </section>
 
     <!-- Botón agregar producto -->
-      <section class="flex justify-between mb-4">
+    <!-- <section class="flex flex-col">
+        <form action="" method="post" class="flex  justify-center items-center mb-6 relative">
+            <input type="text" placeholder="5x5" class="border border-gray-300 rounded px-4 py-2 w-1/2 focus:outline-none focus:ring-2 focus:ring-verde-principal">
+            <button class="bg-verde-principal text-white px-6 py-2 rounded-r absolute right-1/4">Buscar</button>
+        </form>
+    </section> -->
+      <!-- <section class="flex justify-between mb-4">
         <form class="flex justify-start h-12 pr-20  w-lg" action="/todoEnLed-online/app/Controllers/controller_search.php" method="post" >
           <input type="text" placeholder="Buscar..." name="text" class="bg-verde-menta pl-1.5  rounded-sm w-full focus:border-2 focus:border-verde-principal focus:outline-none" required>
 
@@ -26,10 +32,9 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1) {
               <path fill-rule="evenodd" d="M12.9 14.32a8 8 0 111.414-1.414l4.387 4.387a1 1 0 01-1.414 1.414l-4.387-4.387zM14 8a6 6 0 11-12 0 6 6 0 0112 0z" clip-rule="evenodd" />
             </svg>
           </button>
-        </form>
+        </form>   
+      </section>-->
 
-  
-      </section>
 
     <section>
         

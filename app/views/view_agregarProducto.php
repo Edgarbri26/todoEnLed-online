@@ -17,7 +17,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1 && $_SESSION['rol'] != 3) 
         </section>
         <section class=" mt-5 flex justify-center items-center">
             <article class=" mt-5 bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
-                <form class="flex flex-col gap-2" action="../Controllers/controller_editarProducto.php" method="post">
+                <form enctype="multipart/form-data" class="flex flex-col gap-2" action="../Controllers/controller_editarProducto.php" method="post">
                     <div class="mb-4">
                         <label class="block mb-1 font-medium" for="nombre">Nombre</label>
                         <input required type="text" id="nombre" name="nombre"
@@ -44,8 +44,10 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1 && $_SESSION['rol'] != 3) 
 
                     <div class="mb-4">
                         <label class="block mb-1 font-medium" for="img">Imagen</label>
-                        <input required type="text" id="img" name="img"
+                        <input required type="file" id="img" name="img" accept="image/*"
                             class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-verde-principal">
+                        <img src="" alt="" id="preview" class="w-full h-auto mb-2">
+                        <input type="hidden" id="img_url" name="img">
                     </div>
 
                     <div class="mb-4">

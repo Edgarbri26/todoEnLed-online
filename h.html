@@ -3,65 +3,82 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/output.css">
-    <link rel="icon" href="/assets/logo.ico">
-    <title>TodoEnLed</title>
+    <title>Subir Imagen a Cloudinary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            max-width: 600px;
+            margin: auto;
+        }
 
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
 
+        input[type="file"] {
+            margin-top: 10px;
+        }
 
-
+        img {
+            max-width: 300px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
-    <todoenled-header></todoenled-header>
+    <h2>Subir Imagen a Cloudinary (JS)</h2>
 
-    <main class="bg-amber-200  text-gray-800 " > ">
-        <section class="bg-amber-400" id="inicio">
-            <h1 class=" animate-slide-up-fade text-8xl text-blue-400">Tu camino, <br>tu estilo, <span>Todo en LED.</span></h1>
-            <p>Todo que buscas para tu vehiculo</p>
-        </section>
-        <button type="button">
-            Gestion de productos
-        </button>
-        <input class="m-4 rounded-b-sm bg-verde-principal" type="number">
-        <section id="new" class="new">
-            <h2 class="name-section">Nuevo</h2>
-            <article id="products-new" class="products-container">
-                <div class="product-container">
-                    <img class="img-product" src="/assets/productos/IMG-20250520-WA0036.jpg" alt="">
-                    <h3 class="product-name">Filtro de aire</h3>
-                    <p class="product-description">no se donde va</p>
-                    <p>stock</p>
-                    <span class="cost">100$</span>
-                    <button type="button" class="btn">
-                        <span class="icon">
-                            <svg viewBox="0 0 175 80" width="40" height="40">
-                                <rect width="80" height="15" fill="#f0f0f0" rx="10"></rect>
-                                <rect y="30" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
-                                <rect y="60" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
-                            </svg>
-                        </span>
-                        <span class="text">Add</span>
-                    </button>
-                </div>
-            </article>
-            <a href="">ver mas</a>
+    <input type="file" id="imageInput" accept="image/*">
+    <button onclick="subirImagen()">Subir</button>
 
-        </section>
+    <label for="imageUrl">URL de la imagen:</label>
+    <input type="text" id="imageUrl" readonly style="width: 100%;">
 
-        <section id="luces">
-            <h2 class="name-section">Luces</h2>
-            <a href="">ver mas</a>
-        </section>
+    <img id="preview" src="" alt="" />
 
-        <section id="Seguridad">
-            <a href="">ver mas</a>
-        </section>
+    <script>
+        // subir imagen a cloudinary
+        async function subirImagen() {
+            const fileInput = document.getElementById('imageInput');
+            const imageUrlInput = document.getElementById('imageUrl');
+            const preview = document.getElementById('preview');
 
-    </main>
+            const file = fileInput.files[0];
+            if (!file) {
+                alert("Selecciona una imagen primero.");
+                return;
+            }
 
-    <script src="/src/js/compents/todoEnLed-header.js"></script>
+            const formData = new FormData();
+            formData.append("file", file);
+            formData.append("upload_preset", "todoEnLed");
+
+            try {
+                const res = await fetch("https://api.cloudinary.com/v1_1/ddf7x11wg/image/upload", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const data = await res.json();
+
+                if (data.secure_url) {
+                    const imageUrl = data.secure_url;
+                    imageUrlInput.value = imageUrl;
+                    preview.src = imageUrl;
+                } else {
+                    alert("Error en la respuesta: " + JSON.stringify(data));
+                }
+
+            } catch (error) {
+                console.error("Error al subir la imagen:", error);
+                alert("Error al subir la imagen.");
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -9,7 +9,7 @@ $cart = new Cart();
 if (isset($_SESSION['id_user'])) {
     $id_user = $_SESSION['id_user'];
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn'])) {
+    if ($_SERVER['REQUEST_METHOD'] /*=== 'POST' && isset($_POST['btn'])*/) {
         if (isset($_POST['product_id'], $_POST['product_price'])) {
 
 
@@ -22,6 +22,7 @@ if (isset($_SESSION['id_user'])) {
             } else {
                 $cart->getNumProducts($id_user);
                 $cart->addProduct($id_user, $id_producto, $price);
+                $_SESSION['add_cart'] = true;
                 header('Location: controller_index.php');
                 exit;
             }
@@ -38,6 +39,7 @@ if (isset($_SESSION['id_user'])) {
     }
 
     $rol = $_SESSION['rol'] ?? 0;
+    
 
     require_once __DIR__ . '/../views/view_cart.php';
 } else {

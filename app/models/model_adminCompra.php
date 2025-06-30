@@ -10,6 +10,7 @@ class CompraAdmin {
     public function getCompra() {
         $sql = "SELECT 
     u.user_name AS Usuario,
+    c.telefono AS Telefono,
     p.Productos,
     p.Cantidades,
     o.orden_fecha AS Fecha,
@@ -21,6 +22,8 @@ FROM
     ordenes o
 INNER JOIN 
     users u ON o.user_id = u.id_user
+INNER JOIN
+    cliente c ON u.id_user = c.id_user
 INNER JOIN 
     (
         SELECT 
@@ -37,7 +40,7 @@ INNER JOIN
 INNER JOIN
     estado_orden eo ON o.estado_id = eo.id_estado
 ORDER BY 
-    u.user_name, o.orden_fecha, o.estado_id;";
+    o.orden_fecha DESC, o.id_orden DESC;";
         $result = $this->conn->query($sql);
         $compra = [];
         while($row = $result->fetch_assoc()) {

@@ -16,7 +16,9 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1 && $_SESSION['rol'] != 3) 
     </section>
 
     <article class="flex justify-end mb-4">
-        <button class="bg-verde-principal text-white px-4 py-2 rounded hover:scale-105 transition-all">Descargar reporte</button>
+        <form action="../../src/php/reporte_compras.php" method="get" style="display:inline;">
+            <button type="submit" class="bg-verde-principal text-white px-4 py-2 rounded hover:scale-105 transition-all">Descargar reporte</button>
+        </form>
     </article>
 
     <section class="p-2.5 bg-white rounded-2xl shadow">
@@ -68,12 +70,28 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1 && $_SESSION['rol'] != 3) 
                         ?>
                         <td class="p-2.5 text-center font-bold <?php echo $color; ?>"><?php echo ($estado) ?></td>
                         <td class="p-2.5 text-center">
-                            <form action="../Controllers/controller_editarCompra.php" method="post">
+                            <form action="../Controllers/controller_editarCompra.php" method="post" style="display:inline;">
                                 <input type="hidden" name="id" value="<?php echo ($item['ID']) ?>">
+                                <input type="hidden" name="telefono" value="<?php echo ($item['Telefono']) ?>">
                                 <button name="btn" class="bg-verde-principal text-white px-4 py-2 rounded hover:scale-105 transition-all">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </button>
                             </form>
+                            <?php
+                                $telefono = preg_replace('/[^0-9]/', '', $item['Telefono']);
+                                $mensaje = "Hola, soy de TodoEnLed. Confirmando tu compra: ";
+                                $productos = explode(',', $item['Productos']);
+                                $cantidades = explode(',', $item['Cantidades']);
+                                $mensaje .= "%0AProductos:%0A";
+                                for ($i = 0; $i < count($productos); $i++) {
+                                    $mensaje .= "- " . trim($productos[$i]) . " x " . trim($cantidades[$i]) . "%0A";
+                                }
+                                $mensaje .= "Total: " . $item['Monto'];
+                                $wa_url = "https://wa.me/$telefono?text=$mensaje";
+                            ?>
+                            <a href="<?php echo $wa_url; ?>" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded hover:scale-105 transition-all ml-2">
+                                <i class="fa-brands fa-whatsapp"></i> Hablar con cliente
+                            </a>
                         </td>
                     </tr>
 

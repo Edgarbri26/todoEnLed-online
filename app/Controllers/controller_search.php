@@ -3,12 +3,12 @@ require_once __DIR__ . '/../models/model_search.php';
 require_once __DIR__ . '/../../Public/db.php';
 
 if(isset($_POST['search'])){
-    $text = $_POST['text'];
+    $searchInput = $_POST['search'];
 
     $search = new Search();
-    $search->searchProducts($text);
+    $products = $search->search($searchInput);
 }
 
 
-require_once '../views/view_search.php';
+require_once '../views/view_buscar.php';
 ?>

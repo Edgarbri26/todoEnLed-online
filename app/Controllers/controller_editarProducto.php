@@ -16,10 +16,36 @@ if(isset($_POST['edit'])){
     $nombre = $_POST['nombre'];
     $stock = $_POST['stock'];
     $descripcion = $_POST['descripcion'];
-    $img = $_POST['img'];
     $id_categoria = $_POST['id_categoria'];
-    $ep->modificarProducto($id, $precio, $nombre, $stock, $descripcion, $img, $id_categoria);
-    header('Location: controller_adminProducto.php');
+
+    // Subida a Cloudinary o mantener la imagen anterior
+    $img_url = '';
+    if (isset($_FILES['img']) && $_FILES['img']['error'] == 0) {
+        $tmpFilePath = $_FILES['img']['tmp_name'];
+        $cloudinary_url = 'https://api.cloudinary.com/v1_1/ddf7x11wg/image/upload';
+        $postData = [
+            'file' => new CURLFile($tmpFilePath),
+            'upload_preset' => 'todoEnLed'
+        ];
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $cloudinary_url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $data = json_decode($response, true);
+        if (isset($data['secure_url'])) {
+            $img_url = $data['secure_url'];
+        } else {
+            $img_url = '';
+        }
+    } else if (isset($_POST['img_actual'])) {
+        $img_url = $_POST['img_actual'];
+    }
+    $ep->modificarProducto($id, $precio, $nombre, $stock, $descripcion, $img_url, $id_categoria);
+    $_SESSION['success'] = 'Producto modificado correctamente';
+    header('Location: ../Controllers/controller_adminProducto.php');
     exit;
 }
 
@@ -28,10 +54,33 @@ if(isset($_POST['agregar'])){
     $nombre = $_POST['nombre'];
     $stock = $_POST['stock'];
     $descripcion = $_POST['descripcion'];
-    $img = $_POST['img'];
     $id_categoria = $_POST['id_categoria'];
-    $ep->agregarProducto($precio, $nombre, $stock, $descripcion, $img, $id_categoria);
-    header('Location: controller_index.php');
+    // Subida a Cloudinary
+    $img_url = '';
+    if (isset($_FILES['img']) && $_FILES['img']['error'] == 0) {
+        $tmpFilePath = $_FILES['img']['tmp_name'];
+        $cloudinary_url = 'https://api.cloudinary.com/v1_1/ddf7x11wg/image/upload';
+        $postData = [
+            'file' => new CURLFile($tmpFilePath),
+            'upload_preset' => 'todoEnLed'
+        ];
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $cloudinary_url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $data = json_decode($response, true);
+        if (isset($data['secure_url'])) {
+            $img_url = $data['secure_url'];
+        } else {
+            $img_url = '';
+        }
+    }
+    $ep->agregarProducto($precio, $nombre, $stock, $descripcion, $img_url, $id_categoria);
+    $_SESSION['success'] = 'Producto agregado correctamente';
+    header('Location: ../Controllers/controller_adminProducto.php');
     exit;
 }
 

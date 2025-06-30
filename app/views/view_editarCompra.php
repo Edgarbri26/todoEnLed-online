@@ -10,7 +10,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1 && $_SESSION['rol'] != 3) 
 <body class="bg-gray-100">
     <main class="main-container">
         <section class="flex gap-4 items-center justify-center">
-            <a href="/todoEnLed-online/app/views/view_gestionCompra.php">
+            <a href="/todoEnLed-online/app/controllers/controller_adminCompras.php">
                 <i class="fa-solid fa-arrow-left text-4xl mb-10 text-verde-principal rounded-full "></i>
             </a>
             <h1 class="text-6xl font-bold text-center mb-10">Detalle de <span class="text-verde-principal"> Compra</span></h1>

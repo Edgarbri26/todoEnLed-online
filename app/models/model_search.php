@@ -6,14 +6,19 @@ class Search {
         $this->conn = Conectar::Conexion();
     }
 
-    public function searchProducts($search) {
-        $stmt = $this->conn->prepare("SELECT * FROM products WHERE nombre LIKE ?");
-        $likeSearch = "%".$search."%";
-        $stmt->bind_param("s", $likeSearch);
+    public function search($term) {
+        $sql = "SELECT * FROM products WHERE nombre LIKE ? OR descripcion LIKE ?";
+        $stmt = $this->conn->prepare($sql);
+        $likeTerm = '%' . $term . '%';
+        $stmt->bind_param("ss", $likeTerm, $likeTerm);
         $stmt->execute();
         $result = $stmt->get_result();
-        $products = $result->fetch_all(MYSQLI_ASSOC);
+        $products = [];
+        while($row = $result->fetch_assoc()) {
+            $products[] = $row;
+        }
         $stmt->close();
+        $this->conn->close();
         return $products;
     }
 }

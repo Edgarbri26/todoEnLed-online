@@ -4,6 +4,14 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1 && $_SESSION['rol'] != 3) 
     header("Location: ../views/Error404.html");
     exit();
 }
+// Incluir SweetAlert2 desde CDN
+?>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<?php
+if (isset($_SESSION['success'])) {
+  echo "<script>Swal.fire({icon: 'success',title: '¡Guardado!',text: '" . $_SESSION['success'] . "',confirmButtonColor: '#3085d6'});</script>";
+  unset($_SESSION['success']);
+}
 ?>
 <?php require '../../Public/templates/headerAdmin.php'; ?>
 
@@ -17,8 +25,8 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1 && $_SESSION['rol'] != 3) 
           </section>
 
     <!-- Botón agregar producto -->
-      <section class="flex justify-between mb-4">
-        <form class="flex justify-start h-12 pr-20  w-lg" action="/todoEnLed-online/app/Controllers/controller_search.php" method="post" >
+      <section class="flex justify-end mb-4">
+        <!-- <form class="flex justify-start h-12 pr-20  w-lg" action="/todoEnLed-online/app/Controllers/controller_search.php" method="post" >
           <input type="text" placeholder="Buscar..." name="text" class="bg-verde-menta pl-1.5  rounded-sm w-full focus:border-2 focus:border-verde-principal focus:outline-none" required>
 
           <button type="submit" name="search" 
@@ -27,7 +35,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1 && $_SESSION['rol'] != 3) 
               <path fill-rule="evenodd" d="M12.9 14.32a8 8 0 111.414-1.414l4.387 4.387a1 1 0 01-1.414 1.414l-4.387-4.387zM14 8a6 6 0 11-12 0 6 6 0 0112 0z" clip-rule="evenodd" />
             </svg>
           </button>
-        </form>
+        </form> -->
         <a href="/todoEnLed-online/app/views/view_agregarProducto.php">
           <button class=" bg-verde-principal text-white px-4 py-2 rounded hover:scale-105 transition-all">+ Agregar Producto</button>
         </a>

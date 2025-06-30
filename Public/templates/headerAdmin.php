@@ -1,5 +1,5 @@
 
-<body class="bg-gray-200 grid grid-cols-[250px_1fr] grid-rows-[auto_1fr_auto] min-h-screen"">
+<body class="bg-gray-300 grid grid-cols-[250px_1fr] grid-rows-[auto_1fr_auto] min-h-screen"">
 
     <header class=" sticky bg-azul-principal shadow top-0 px-24 text-center  col-span-2">
         <div class="max-w-screen-xl mx-auto px-4 py-4 grid grid-cols-[1fr_auto_1fr] items-center">
