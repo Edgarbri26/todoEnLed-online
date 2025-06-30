@@ -31,6 +31,13 @@
     </a>
   </div>
 
+  <div class="flex flex-col items-center">
+        <a href="/todoEnLed-online/app/Controllers/controller_index.php">
+        <!--span class="text-xs text-center text-white">TodoEnLed | Tu camino, Tu estilo</!--span-->
+          <img src="/todoEnLed-online/Public/img/logo.png" alt="Logo" class="h-10 mt-1" >
+        </a>
+      </div>
+
     <!-- Íconos a la derecha -->
     <div class="flex items-center justify-end space-x-4 h-full">
       <a href="../Controllers/controller_login.php">
