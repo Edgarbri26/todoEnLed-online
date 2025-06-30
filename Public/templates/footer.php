@@ -13,7 +13,7 @@
       <ellipse cx="16" cy="16" rx="14" ry="10" stroke="currentColor" stroke-width="2" />
       <path d="M10 16c2 2 10 2 12 0" stroke="currentColor" stroke-width="2" />
     </svg>
-    <span class="text-sm font-semibold text-white select-none text-center">Mercado Libre</span>
+    <span class="text-sm font-semibold text-white select-none text-center"></span>
   </a>
   <!-- Instagram -->
   <a href="https://www.instagram.com/tuusuario" target="_blank" aria-label="Instagram"
@@ -23,7 +23,7 @@
       <circle cx="16" cy="16" r="5" stroke="currentColor" stroke-width="2" />
       <circle cx="22" cy="10" r="1" fill="currentColor" />
     </svg>
-    <span class="text-sm font-semibold text-white select-none text-center">Instagram</span>
+    <span class="text-sm font-semibold text-white select-none text-center"></span>
   </a>
   <!-- Facebook -->
   <a href="https://www.facebook.com/tuusuario" target="_blank" aria-label="Facebook"
@@ -32,7 +32,7 @@
       <rect x="8" y="8" width="16" height="16" rx="4" stroke="currentColor" stroke-width="2" />
       <path d="M18 13h2v-3h-2c-2 0-3 1-3 3v2h-2v3h2v6h3v-6h2l1-3h-3v-2c0-.5.5-1 1-1z" stroke="currentColor" stroke-width="2" />
     </svg>
-    <span class="text-sm font-semibold text-white select-none text-center">Facebook</span>
+    <span class="text-sm font-semibold text-white select-none text-center"></span>
   </a>
 </div>
 
