@@ -127,7 +127,7 @@ if (isset($_SESSION['error_stock'])) {
         </div>
 
         <label class="inline-flex items-start text-xs">
-          <input type="checkbox" class="mr-2 mt-1">
+          <input type="checkbox" class="mr-2 mt-1" required>
           <span>Leo y acepto las <a href="#" class="text-blue-600 hover:underline">Condiciones generales de Contratación</a> y <a href="#" class="text-blue-600 hover:underline">Política de privacidad</a></span>
         </label>
 

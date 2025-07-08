@@ -58,6 +58,7 @@ if(isset($_POST['orden'])){
         $orden = $gestion->InsertarOrden($usuario, $total);
         if($orden != -1){
             $gestion->InsertarOrdenDetalles($orden, $productos, $cantidad);
+            $gestion->ActualizarStock($productos, $cantidad);
             $gestion->EliminarTodo($usuario);
             // Guardar flag y datos para mostrar alert y abrir WhatsApp en el index
             $numero = "584262498651"; // Cambia por tu número de WhatsApp

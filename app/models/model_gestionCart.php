@@ -153,4 +153,33 @@ class Gestion
         $stmt->close();
         return true;
     }
+
+    public function ActualizarStock($productos, $cantidades)
+    {
+        if (count($productos) === 0 || count($cantidades) === 0) return false;
+    if (count($productos) !== count($cantidades)) return false; // Validar que tengan igual tamaño
+
+    $stmt = $this->conn->prepare("UPDATE products SET stock = stock - ? WHERE id = ?");
+    if (!$stmt) return false;
+
+    // Declarar variables para bind_param
+    $cantidad = 0;
+    $producto = 0;
+
+    // Vincular parámetros una sola vez
+    $stmt->bind_param("ii", $cantidad, $producto);
+
+    for ($i = 0; $i < count($productos); $i++) {
+        $producto = $productos[$i];
+        $cantidad = $cantidades[$i];
+
+        if (!$stmt->execute()) {
+            $stmt->close();
+            return false;
+        }
+    }
+
+    $stmt->close();
+    return true;
+    }
 }
