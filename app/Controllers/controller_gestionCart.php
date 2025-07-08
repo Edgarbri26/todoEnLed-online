@@ -20,11 +20,16 @@ if(isset($_POST['restar'])){
 if(isset($_POST['sumar'])){
     $id = $_POST['id'];
     $suma = $gestion->Sumar($id);
-    $maximo = $gestion->Maximo($id);
-    if($suma <= $maximo){
+    $validar = $gestion->Validar($id, $suma);
+    if($validar == false){
+        // No hay suficiente stock
+        header('Location: controller_cart.php');
+        exit;
+    }else {
+        // Hay suficiente stock, actualizar cantidad
         $aumentar = $gestion->Aumentar($id, $suma);
+        header('Location: controller_cart.php');
     }
-    header('Location: controller_cart.php');
 }
 
 if(isset($_POST['eliminar'])){

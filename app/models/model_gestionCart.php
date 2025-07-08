@@ -14,11 +14,13 @@ class Gestion
         $id = (int) $id;
         $sql = "SELECT * FROM carrito WHERE id_producto = $id";
         $result = $this->conn->query($sql);
-        while ($row = $result->fetch_assoc()) {
-            $resta = $row['cantidad'];
+        
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $resta = $row['cantidad'] - 1;
+            return $resta;
         }
-        $resta = $resta - 1;
-        return $resta;
+        return 0;
     }
 
     public function Disminuir($id, $resta)
@@ -33,11 +35,36 @@ class Gestion
         $id = (int) $id;
         $sql = "SELECT * FROM carrito WHERE id_producto = $id";
         $result = $this->conn->query($sql);
-        while ($row = $result->fetch_assoc()) {
-            $suma = $row['cantidad'];
+        
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $suma = $row['cantidad'] + 1;
+            return $suma;
         }
-        $suma = $suma + 1;
-        return $suma;
+        return 1;
+    }
+
+    public function Validar($id, $suma){
+        $id = (int) $id;
+        $sql = "SELECT * FROM products WHERE id = $id";
+        $result = $this->conn->query($sql);
+        
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $final = $row['stock'];
+            
+            if($suma > $final){
+                $_SESSION['error_stock'] = true;
+                return false;
+            }else if($suma <= $final){
+                $_SESSION['error_stock'] = false;
+                return true;
+            }
+        } else {
+            // Producto no encontrado
+            $_SESSION['error_stock'] = true;
+            return false;
+        }
     }
 
     public function Aumentar($id, $suma)
@@ -67,10 +94,12 @@ class Gestion
         $id = (int) $id;
         $sql = "SELECT * FROM products WHERE id = $id";
         $result = $this->conn->query($sql);
-        while ($row = $result->fetch_assoc()) {
-            $maximo = $row['stock'];
+        
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row['stock'];
         }
-        return $maximo;
+        return 0;
     }
 
     public function getUserId($username)

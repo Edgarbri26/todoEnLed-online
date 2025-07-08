@@ -2,6 +2,23 @@
 <?php require '../../Public/templates/header.php'; ?>
 <?php require_once __DIR__ . '/../../Public/db.php'; ?>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<?php if (isset($_SESSION['error_stock']) && $_SESSION['error_stock'] == true): ?>
+  <script>
+    Swal.fire({
+      title: 'Stock insuficiente',
+      text: 'No hay suficiente stock disponible para este producto.',
+      icon: 'warning'
+    });
+  </script>
+<?php endif; ?>
+<?php 
+// Limpiar la variable de sesión después de mostrar el alert
+if (isset($_SESSION['error_stock'])) {
+    unset($_SESSION['error_stock']);
+}
+?>
+
 <body class="bg-gray-50 font-sans">
   <main class="main-container">
     <section class="flex gap-4 items-center justify-center">
